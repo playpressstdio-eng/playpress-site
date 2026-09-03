@@ -44,3 +44,35 @@ Once you have sample edits to show:
 
 ## 5. You don't need to touch the CSS
 Everything above only requires editing text between the `<...>` tags — you won't need to understand the styling code (the `<style>` block near the top) to make any of these changes. Leave that part alone unless you want to change colors or layout.
+
+---
+
+## Adding your own domain (after you've settled on a brand/cost)
+
+The free `https://playpress-site.pages.dev` is just Cloudflare's auto-generated default. You've since registered `playpress-studio.com`.
+For a real brand link, buy a domain and point it here.
+
+### 1. Choose a domain
+- **Buy a `.com` for a business you'll keep** — roughly **$10–11/yr, flat renewal** (about a dollar a month).
+- Avoid cheap first-year TLDs with big renewal jumps (e.g. `.online` is ~$5 yr 1 but **~$28/yr** after).
+- Register it at **Cloudflare Registrar** (wholesale, no markup, no surprise upsells) or Namecheap / Google Domains.
+- A domain is **yours; you renew yearly** (can pre-pay up to 10 years to lock the price).
+
+### 2. Connect it in Cloudflare Pages
+1. Cloudflare dashboard → **Workers & Pages** → your project → **Custom domains**.
+2. Click **Set up a custom domain** → enter e.g. `playpress-studio.com` → **Continue**.
+3. Cloudflare auto-creates the DNS record and issues a **free SSL** certificate.
+4. Wait for it to be **Active** (usually a few minutes once DNS propagates).
+
+### 3. Update the site's URLs (so SEO/socials point at the new domain)
+These files currently say `https://playpress-studio.com/` — swap every occurrence to your new domain:
+- `content/settings/seo.yml` → `canonical` and `og_image`
+- `sitemap.xml` → the `<loc>` entry
+- `robots.txt` → the `Sitemap:` line
+- `index.html` → the JSON-LD `"url"`
+- `admin/config.yml` → `site_url`
+Then re-upload to GitHub (or edit in the CMS for the SEO fields) and rebuild.
+
+### 4. Verify
+Open `https://yourdomain.com/` and `https://yourdomain.com/admin/`.
+The `.pages.dev` URL keeps working as a mirror, so nothing breaks in the switch.

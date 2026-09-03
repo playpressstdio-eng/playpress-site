@@ -30,6 +30,13 @@ function listRun(folder) {
 }
 function slug(s) { const base = String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, ''); return base || 'post'; }
 function arr(x) { return Array.isArray(x) ? x : []; }
+// Ensure a content image URL is absolute (site-root) so it resolves from /blog/<slug>/ pages.
+function asset(u) {
+  if (!u) return '';
+  const s = String(u).trim();
+  if (/^(https?:)?\/\//i.test(s) || s.charAt(0) === '/') return s;
+  return '/' + s.replace(/^\.?\//, '');
+}
 // Normalize a list into plain strings. Decap's list `field` REQUIRES a `name`, so it writes
 // `[{name: value}]`; accept either that or a plain `["a","b"]` array.
 function strList(x) {
@@ -111,8 +118,15 @@ const acreds = ACREDS || {};
 const afun = AFUN || {};
 
 // ---------- Render helpers ----------
-function listLinks(links, cls) {
-  return arr(links).map(l => `<a href="${esc(l.href || '#')}">${esc(l.label || '')}</a>`).join('\n      ');
+function navItems(links) {
+  return arr(links).map(l => {
+    const kids = arr(l.children);
+    const label = esc(l.label || '');
+    const href = esc(l.href || '#');
+    if (!kids.length) return `<a href="${href}">${label}</a>`;
+    const childLinks = kids.map(c => `<a href="${esc(c.href || '#')}" class="child-link">${esc(c.label || '')}</a>`).join('');
+    return `<div class="nav-dd"><a class="nav-dd-title" href="${href}" aria-haspopup="true">${label}<span class="caret" aria-hidden="true">▾</span></a><div class="nav-dd-menu">${childLinks}</div></div>`;
+  }).join('\n      ');
 }
 function stepsHTML() {
   return arr(how.steps).map(s => `
@@ -209,12 +223,12 @@ html = html
   // <head> SEO
   .replace('<!--SEOTITLE-->', esc(seo.title || 'PlayPress Studio | Podcasting, Done Right!'))
   .replace('<!--SEODESC-->', esc(seo.meta_description || ''))
-  .replaceAll('<!--SEOURL-->', esc(seo.canonical || 'https://playpress-site.pages.dev/'))
-  .replaceAll('<!--OGIMAGE-->', esc(seo.og_image || 'https://playpress-site.pages.dev/og-image.png'))
+  .replaceAll('<!--SEOURL-->', esc(seo.canonical || 'https://playpress-studio.com/'))
+  .replaceAll('<!--OGIMAGE-->', esc(seo.og_image || 'https://playpress-studio.com/og-image.png'))
   .replaceAll('<!--OGTITLE-->', esc((brand.name || 'PlayPress Studio') + ' | ' + (brand.tagline || 'Podcasting, Done Right.')))
   .replaceAll('<!--OGDESC-->', esc(seo.meta_description || 'Done-for-you podcast editing, vertical reels, show notes, and social scheduling by a dedicated solo producer.'))
   // nav
-  .replaceAll('<!--NAVLINKS-->', listLinks(nav.links))
+  .replaceAll('<!--NAVLINKS-->', navItems(nav.links))
   .replace('<!--NAVLOGO-->', esc(nav.logo_text || brand.name || 'PlayPress Studio'))
   .replaceAll('<!--NAVCTA-->', esc(nav.cta_text || 'Book Discovery Call'))
   .replaceAll('<!--NAVCTALINK-->', esc(nav.cta_link || contact.calendly || '#'))
@@ -311,7 +325,7 @@ posts.forEach(p => {
 });
 const postCards = posts.map(p => {
   const date = safeDate(p.data.date);
-  const img = p.data.image ? `<img class="post-thumb" src="${esc(p.data.image)}" alt="${esc(p.data.title)}">` : '';
+  const img = p.data.image ? `<img class="post-thumb" src="${esc(asset(p.data.image))}" alt="${esc(p.data.title)}">` : '';
   return `<a class="post-card" href="/blog/${p._slug}/">${img}<h3>${esc(p.data.title)}</h3>${date ? `<div class="post-date">${esc(date)}</div>` : ''}${p.data.excerpt ? `<p>${esc(p.data.excerpt)}</p>` : ''}</a>`;
 }).join('\n');
 
@@ -328,7 +342,7 @@ posts.forEach(p => {
   const title = esc(p.data.title || 'Untitled');
   const date = safeDate(p.data.date);
   const body = renderBody(p.body);
-  const img = p.data.image ? `<img class="post-hero" src="${esc(p.data.image)}" alt="${esc(p.data.title)}">` : '';
+  const img = p.data.image ? `<img class="post-hero" src="${esc(asset(p.data.image))}" alt="${esc(p.data.title)}">` : '';
   const htmlPost = `<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>${title} | ${esc(brand.name || 'PlayPress Studio')}</title>
 <style>${styleBlock()}</style></head><body>
 <header><div class="wrap"><a href="/blog/">\u2190 All posts</a></div></header>
@@ -338,7 +352,7 @@ posts.forEach(p => {
 });
 
 function styleBlock() {
-  return `body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:#FCF8F3;color:#2B1D18;margin:0;line-height:1.7}.wrap{max-width:760px;margin:0 auto;padding:0 24px}header{background:#FCF8F3;border-bottom:1px solid rgba(146,100,86,.14);padding:20px 0}header a{color:#C75B64;text-decoration:none;font-weight:700}h1{font-size:34px;margin:40px 0 8px;letter-spacing:-.03em}.posts{display:grid;gap:18px;margin:28px 0 60px}.post-card{display:block;background:#fff;border:1px solid rgba(146,100,86,.14);border-left:4px solid #C75B64;border-radius:14px;padding:24px;text-decoration:none;color:inherit;box-shadow:0 4px 16px rgba(140,82,72,.06);transition:transform .2s,box-shadow .2s}.post-card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(140,82,72,.12)}.post-card h3{margin:0 0 6px;font-size:20px}.post-card .post-date{font-size:12px;color:#8A6F62;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}.post-card p{margin:0;font-size:14.5px;color:#4A342E}.post-thumb{width:100%;height:auto;border-radius:10px;margin-bottom:16px;border:1px solid rgba(146,100,86,.12)}.post-hero{width:100%;height:auto;border-radius:14px;margin:8px 0 28px;border:1px solid rgba(146,100,86,.14)}.post-title{font-size:38px;line-height:1.2;margin:40px 0 8px;letter-spacing:-.03em}.post-date{font-size:13px;color:#8A6F62;text-transform:uppercase;letter-spacing:.05em;margin-bottom:24px}.post-body{font-size:17px;margin-bottom:60px}.post-body h2{margin:28px 0 8px;color:#C75B64}.post-body a{color:#C75B64}.post-body code{background:#FAE7E4;padding:2px 6px;border-radius:4px}.back{display:inline-block;margin:24px 0 40px;color:#C75B64}`;
+  return `body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:#FCF8F3;color:#2B1D18;margin:0;line-height:1.7}.wrap{max-width:1080px;margin:0 auto;padding:0 24px}header{background:#FCF8F3;border-bottom:1px solid rgba(146,100,86,.14);padding:20px 0}header a{color:#C75B64;text-decoration:none;font-weight:700}h1{font-size:34px;margin:40px 0 8px;letter-spacing:-.03em}.posts{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;margin:28px 0 60px}.post-card{display:flex;flex-direction:column;background:#fff;border:1px solid rgba(146,100,86,.14);border-radius:16px;padding:20px;text-decoration:none;color:inherit;box-shadow:0 4px 16px rgba(140,82,72,.06);transition:transform .2s,box-shadow .2s}.post-card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(140,82,72,.12)}.post-card h3{margin:0 0 6px;font-size:20px;line-height:1.25}.post-card .post-thumb{margin-bottom:14px}.post-card .post-date{font-size:12px;color:#8A6F62;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}.post-card p{margin:0;font-size:14.5px;color:#4A342E}.post-thumb{width:100%;height:auto;border-radius:10px;margin-bottom:16px;border:1px solid rgba(146,100,86,.12)}.post-hero{width:100%;height:auto;border-radius:14px;margin:8px 0 28px;border:1px solid rgba(146,100,86,.14)}.post-title{font-size:38px;line-height:1.2;margin:40px 0 8px;letter-spacing:-.03em}.post-date{font-size:13px;color:#8A6F62;text-transform:uppercase;letter-spacing:.05em;margin-bottom:24px}.post-body{font-size:17px;margin-bottom:60px}.post-body h2{margin:28px 0 8px;color:#C75B64}.post-body a{color:#C75B64}.post-body code{background:#FAE7E4;padding:2px 6px;border-radius:4px}.back{display:inline-block;margin:24px 0 40px;color:#C75B64}`;
 }
 
 console.log('Built site: index.html + ' + (posts.length) + ' blog posts + testimonials.');

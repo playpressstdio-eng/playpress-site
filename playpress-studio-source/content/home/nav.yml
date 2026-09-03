@@ -1,11 +1,29 @@
 # Navigation
 logo_text: "PlayPress Studio"
 links:
-  - { label: "How It Works", href: "#how-it-works" }
-  - { label: "Samples", href: "#samples" }
-  - { label: "Packages", href: "#packages" }
-  - { label: "About", href: "#about" }
-  - { label: "FAQ", href: "#faq" }
-  - { label: "Blog", href: "/blog/" }
+  - label: Home
+    href: "#"
+    children:
+      - { label: How It Works, href: "#how-it-works" }
+      - { label: Asset Matrix, href: "#deliverables" }
+      - { label: FAQ, href: "#faq" }
+  - label: Samples
+    href: "#samples"
+    children:
+      - { label: Before & After, href: "#sample-compare" }
+      - { label: Vertical Reels, href: "#sample-reels" }
+      - { label: Quote Graphics, href: "#sample-graphics" }
+  - label: Packages
+    href: "#packages"
+  - label: Testimonials
+    href: "#testimonials"
+  - label: Blog
+    href: "/blog/"
+  - label: About
+    href: "#about"
+    children:
+      - { label: Bio, href: "#about-bio" }
+      - { label: Credentials, href: "#about-creds" }
+      - { label: Fun Note, href: "#about-fun" }
 cta_text: "Book Discovery Call"
 cta_link: "https://calendly.com/playpress-stdio/15min"

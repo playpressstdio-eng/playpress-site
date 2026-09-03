@@ -39,7 +39,7 @@
   "@type": "ProfessionalService",
   "name": "PlayPress Studio",
   "description": "Done-for-you podcast editing, vertical reels, show notes, and social media scheduling by a dedicated solo producer.",
-  "url": "https://playpress-site.pages.dev/",
+  "url": "https://playpress-studio.com/",
   "email": "playpress.stdio@gmail.com",
   "areaServed": "Worldwide",
   "priceRange": "$$",
@@ -174,7 +174,7 @@
     }
   }
   .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
-  section { padding: 92px 0; position: relative; }
+  section { padding: 92px 0; position: relative; scroll-margin-top: 84px; }
   @media (max-width: 768px) { section { padding: 56px 0; } }
 
   /* NAVIGATION */
@@ -215,6 +215,25 @@
   .navlinks { display: flex; gap: 28px; font-size: 14.5px; font-weight: 600; color: var(--text-body); }
   .navlinks a { transition: color 0.2s; }
   .navlinks a:hover { color: var(--accent); }
+  /* Dropdown nav (hover on desktop) */
+  .nav-dd { position: relative; }
+  .nav-dd-title { display: inline-flex; align-items: center; gap: 6px; }
+  .nav-dd .caret { font-size: 10px; color: var(--text-muted); transition: transform 0.2s; }
+  .nav-dd:hover .caret, .nav-dd:focus-within .caret { transform: rotate(180deg); }
+  .nav-dd-menu {
+    position: absolute; top: calc(100% + 10px); left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    background: var(--bg-surface-solid); border: 1px solid var(--border-light);
+    border-radius: 12px; padding: 8px; min-width: 180px;
+    box-shadow: 0 14px 34px rgba(140,82,72,0.14);
+    opacity: 0; visibility: hidden; transition: opacity 0.18s, transform 0.18s, visibility 0.18s;
+    z-index: 130; text-align: left;
+  }
+  .nav-dd:hover .nav-dd-menu, .nav-dd:focus-within .nav-dd-menu {
+    opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0);
+  }
+  .nav-dd-menu a { display: block; padding: 9px 14px; border-radius: 8px; font-size: 14px; color: var(--text-body); white-space: nowrap; }
+  .nav-dd-menu a:hover { background: var(--accent-soft); color: var(--accent-dark); }
   /* Mobile menu */
   .nav-toggle {
     display: none; background: none; border: none; cursor: pointer;
@@ -241,6 +260,12 @@
     font-size: 15px; font-weight: 700; color: var(--text-body);
     padding: 11px 4px; border-radius: 8px; border-bottom: 1px solid var(--border-light);
   }
+  .mobile-menu .nav-dd-menu {
+    position: static; transform: none; opacity: 1; visibility: visible;
+    box-shadow: none; padding: 0 0 4px 14px; min-width: 0; border: none;
+  }
+  .mobile-menu .nav-dd-menu a { border-bottom: none; padding: 8px 4px; }
+  .mobile-menu .nav-dd-title { padding-right: 4px; }
   .mobile-menu a:last-child { border-bottom: none; }
   .mobile-menu a:hover { color: var(--accent); }
   .mobile-menu .btn-nav { margin-top: 10px; text-align: center; }
@@ -391,27 +416,27 @@
 
   /* TESTIMONIALS (populated by the build) */
   .testimonials-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
-    align-items: stretch;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;
+    align-items: stretch; max-width: 860px; margin: 0 auto;
   }
-  @media (max-width: 900px) { .testimonials-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 900px) { .testimonials-grid { grid-template-columns: 1fr; max-width: 640px; } }
   .testimonial-card {
     background: var(--bg-surface-solid);
     border: 1px solid var(--border-light);
     border-left: 4px solid var(--accent);
-    border-radius: 14px; padding: 26px 24px;
+    border-radius: 14px; padding: 22px 22px 18px;
     box-shadow: var(--shadow-sm);
-    display: flex; flex-direction: column; gap: 14px;
+    display: flex; flex-direction: column; gap: 10px;
   }
   .testimonial-card .quote-mark {
-    font-size: 34px; line-height: 1; color: var(--accent);
+    font-size: 32px; line-height: 0.8; color: var(--accent);
     font-family: Georgia, serif;
   }
   .testimonial-card blockquote {
     font-size: 15px; color: var(--text-body); line-height: 1.6;
     margin: 0; font-style: italic;
   }
-  .testimonial-card .t-author { margin-top: auto; }
+  .testimonial-card .t-author { margin-top: auto; padding-top: 8px; border-top: 1px solid var(--border-light); }
   .testimonial-card .t-name { font-size: 15px; font-weight: 700; color: var(--text-main); }
   .testimonial-card .t-role { font-size: 12.5px; color: var(--text-muted); }
 
@@ -728,7 +753,7 @@
 
     <!--FEATURED-->
 
-    <div style="background: var(--bg-surface-solid); border: 1px solid var(--border-light); border-radius: 20px; padding: 40px; box-shadow: var(--shadow-sm); margin-bottom: 32px;">
+    <div id="sample-compare" style="background: var(--bg-surface-solid); border: 1px solid var(--border-light); border-radius: 20px; padding: 40px; box-shadow: var(--shadow-sm); margin-bottom: 32px;">
       <div style="text-align: center; margin-bottom: 32px;">
         <div style="font-size: 11.5px; font-weight: 800; text-transform: uppercase; color: var(--accent-dark); letter-spacing: 0.06em; margin-bottom: 8px;"><!--CMPLABEL--></div>
         <h3 style="font-size: 22px; font-weight: 800; color: var(--text-main);"><!--CMPHEAD--></h3>
@@ -747,7 +772,7 @@
       </div>
     </div>
 
-    <div class="reel-grid" style="background: var(--bg-surface-solid); border: 1px solid var(--border-light); border-radius: 20px; padding: 40px; box-shadow: var(--shadow-sm);">
+    <div class="reel-grid" id="sample-reels" style="background: var(--bg-surface-solid); border: 1px solid var(--border-light); border-radius: 20px; padding: 40px; box-shadow: var(--shadow-sm);">
       <div>
         <div style="font-size: 11.5px; font-weight: 800; text-transform: uppercase; color: var(--gold); letter-spacing: 0.06em; margin-bottom: 8px;"><!--REELSLABEL--></div>
         <h3 style="font-size: 24px; font-weight: 800; color: var(--text-main); margin-bottom: 16px;"><!--REELSHEAD--></h3>
@@ -769,7 +794,7 @@
       </div>
     </div>
 
-    <div style="background: var(--bg-surface-solid); border: 1px solid var(--border-light); border-radius: 20px; padding: 40px; box-shadow: var(--shadow-sm); margin-bottom: 32px;">
+    <div id="sample-graphics" style="background: var(--bg-surface-solid); border: 1px solid var(--border-light); border-radius: 20px; padding: 40px; box-shadow: var(--shadow-sm); margin-bottom: 32px;">
       <div style="text-align: center; margin-bottom: 32px;">
         <div style="font-size: 11.5px; font-weight: 800; text-transform: uppercase; color: var(--gold); letter-spacing: 0.06em; margin-bottom: 8px;"><!--GRAPHLABEL--></div>
         <h3 style="font-size: 22px; font-weight: 800; color: var(--text-main);"><!--GRAPHHEAD--></h3>
@@ -825,13 +850,13 @@
         <div class="about-text">
           <div class="kicker"><!--ABOUTKICKER--></div>
           <h2><!--ABOUTTITLE--></h2>
-          <!--ABOUTBIO-->
-          <div class="about-fun">
+          <div id="about-bio"><!--ABOUTBIO--></div>
+          <div class="about-fun" id="about-fun">
             <!--FUNNOTE-->
           </div>
         </div>
       </div>
-      <div class="creds-row">
+      <div class="creds-row" id="about-creds">
         <!--CREDS-->
       </div>
     </div>
@@ -839,7 +864,7 @@
 </section>
 
 <!-- FAQ -->
-<section id="faq" style="padding-top: 0;">
+<section id="faq" style="padding-top: 56px;">
   <div class="wrap">
     <div class="section-head">
       <div class="kicker"><!--FAQKICKER--></div>
@@ -865,7 +890,7 @@
 </section>
 
 <!-- CALL TO ACTION -->
-<section id="contact" style="padding-top: 0;">
+<section id="contact" style="padding-top: 64px; padding-bottom: 72px;">
   <div class="wrap">
     <div class="cta-banner">
       <h2><!--CTATITLE--></h2>
