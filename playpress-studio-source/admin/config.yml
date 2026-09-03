@@ -134,7 +134,7 @@ collections:
               - label: "Bullets"
                 name: "bullets"
                 widget: "list"
-                field: { label: "Bullet", widget: "string" }
+                field: { label: "Bullet", name: "bullet", widget: "string" }
               - { label: "Vertical video (YouTube embed URL)", name: "video", widget: "string" }
           - { label: "B-roll note", name: "broll_note", widget: "text" }
           - { label: "Style note label", name: "style_label", widget: "string" }
@@ -188,7 +188,7 @@ collections:
               - label: "Features"
                 name: "features"
                 widget: "list"
-                field: { label: "Feature", widget: "string" }
+                field: { label: "Feature", name: "feature", widget: "string" }
               - { label: "CTA text", name: "cta", widget: "string" }
               - { label: "CTA link", name: "cta_link", widget: "string" }
           - label: "Deposit note"
@@ -242,7 +242,7 @@ collections:
           - label: "Bio paragraphs"
             name: "bio"
             widget: "list"
-            field: { label: "Paragraph (wrap a word in ** ** to bold)", widget: "text" }
+            field: { label: "Paragraph (wrap a word in ** ** to bold)", name: "para", widget: "text" }
       - name: "portrait"
         label: "Portrait & Name"
         file: "content/about/portrait.yml"

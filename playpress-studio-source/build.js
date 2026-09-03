@@ -30,6 +30,11 @@ function listRun(folder) {
 }
 function slug(s) { const base = String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, ''); return base || 'post'; }
 function arr(x) { return Array.isArray(x) ? x : []; }
+// Normalize a list into plain strings. Decap's list `field` REQUIRES a `name`, so it writes
+// `[{name: value}]`; accept either that or a plain `["a","b"]` array.
+function strList(x) {
+  return arr(x).map(it => (it && typeof it === 'object') ? (Object.values(it).find(v => typeof v === 'string') || '') : String(it));
+}
 function safeDate(d) { if (!d) return ''; const t = new Date(d); return isNaN(t.getTime()) ? '' : t.toISOString().slice(0, 10); }
 function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
 
@@ -159,7 +164,7 @@ function featuredHTML() {
 function planCards() {
   return arr(PACKAGES.plans).map(p => {
     const pill = p.pill ? `<div class="pkg-pill ${p.pill_class || ''}">${esc(p.pill)}</div>` : '';
-    const features = arr(p.features).map(f => `<li><span class="check">✓</span><span class="text">${esc(f)}</span></li>`).join('\n          ');
+    const features = strList(p.features).map(f => `<li><span class="check">✓</span><span class="text">${esc(f)}</span></li>`).join('\n          ');
     return `
       <div class="pkg-card ${p.pill_class === 'featured' ? 'featured' : (p.pill_class === 'gold' ? 'founder' : '')}">
         ${pill}
@@ -246,7 +251,7 @@ html = html
   .replace('<!--REELSLABEL-->', esc((SAMPLES.reels || {}).label || 'Short-Form Repurposing'))
   .replace('<!--REELSHEAD-->', esc((SAMPLES.reels || {}).headline || ''))
   .replace('<!--REELSTEXT-->', esc((SAMPLES.reels || {}).text || ''))
-  .replace('<!--REELSBULLETS-->', arr((SAMPLES.reels || {}).bullets).map(b => `<li style="display: flex; gap: 10px; font-size: 14.5px; color: var(--text-muted);"><span style="color: var(--accent); font-weight: 800;">✓</span> ${esc(b)}</li>`).join('\n          '))
+  .replace('<!--REELSBULLETS-->', strList((SAMPLES.reels || {}).bullets).map(b => `<li style="display: flex; gap: 10px; font-size: 14.5px; color: var(--text-muted);"><span style="color: var(--accent); font-weight: 800;">✓</span> ${esc(b)}</li>`).join('\n          '))
   .replace('<!--REELSVID-->', esc((SAMPLES.reels || {}).video || ''))
   .replace('<!--BROLLNOTE-->', esc(SAMPLES.broll_note || ''))
   .replace('<!--STYLELABEL-->', esc(SAMPLES.style_label || ''))
@@ -266,7 +271,7 @@ html = html
   // about
   .replace('<!--ABOUTKICKER-->', esc(about.kicker || 'About the Producer'))
   .replace('<!--ABOUTTITLE-->', esc(about.title || ''))
-  .replace('<!--ABOUTBIO-->', arr(about.bio).map(p => `<p>${inlineMD(p)}</p>`).join('\n          '))
+  .replace('<!--ABOUTBIO-->', strList(about.bio).map(p => `<p>${inlineMD(p)}</p>`).join('\n          '))
   .replace('<!--PORTRAITSRC-->', esc(aport.image || 'images/producer-portrait.png'))
   .replace('<!--PORTRAITALT-->', esc('John Lloyd Sarez — founder of PlayPress Studio'))
   .replace('<!--PORTRAITNAME-->', esc(aport.name || 'John Lloyd Sarez'))
