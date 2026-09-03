@@ -57,7 +57,7 @@ plans:
     cta_link: "https://calendly.com/playpress-stdio/15min"
 
 deposit_note:
-  label: "Booking Requirement — not a discount or promo"
-  text: "A 50% deposit is required at signing to reserve your production slot (non-refundable, applies to every plan). The remaining 50% is due once your first month's package is delivered — full price applies every month after that."
+  label: "Booking Requirement: not a discount or promo"
+  text: "A 50% deposit is required at signing to reserve your production slot (non-refundable, applies to every plan). The remaining 50% is due once your first month's package is delivered. Full price applies every month after that."
 
-style_note: "Every plan includes the same production technique and deliverables above. Want a different visual style for your graphics or reels — on-brand fonts, colors, or layout? That's a quick conversation during onboarding, not a separate tier."
+style_note: "Every plan includes the same production technique and deliverables above. Want a different visual style for your graphics or reels, on-brand fonts, colors, or layout? That's a quick conversation during onboarding, not a separate tier."

@@ -8,7 +8,7 @@ backend:
 site_url: https://playpress-studio.netlify.app
 logo_url: /logo-mark.png
 
-media_folder: "images/uploads"
+media_folder: "playpress-studio-source/images/uploads"
 public_folder: "/images/uploads"
 
 collections:
@@ -20,7 +20,7 @@ collections:
     files:
       - name: "nav"
         label: "Nav & Header"
-        file: "content/home/nav.yml"
+        file: "playpress-studio-source/content/home/nav.yml"
         fields:
           - { label: "Logo text", name: "logo_text", widget: "string" }
           - label: "Nav links"
@@ -33,7 +33,7 @@ collections:
           - { label: "Book Call link", name: "cta_link", widget: "string" }
       - name: "hero"
         label: "Hero"
-        file: "content/home/hero.yml"
+        file: "playpress-studio-source/content/home/hero.yml"
         fields:
           - { label: "Eyebrow badge", name: "eyebrow", widget: "string" }
           - { label: "Headline (wrap a word in ** ** to color it)", name: "headline", widget: "string" }
@@ -44,7 +44,7 @@ collections:
           - { label: "Secondary link", name: "secondary_link", widget: "string" }
       - name: "how"
         label: "How It Works"
-        file: "content/home/how.yml"
+        file: "playpress-studio-source/content/home/how.yml"
         fields:
           - { label: "Section kicker", name: "kicker", widget: "string" }
           - { label: "Headline", name: "title", widget: "string" }
@@ -58,7 +58,7 @@ collections:
               - { label: "Description", name: "text", widget: "text" }
       - name: "matrix"
         label: "Asset Matrix"
-        file: "content/home/matrix.yml"
+        file: "playpress-studio-source/content/home/matrix.yml"
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Note", name: "note", widget: "string" }
@@ -71,7 +71,7 @@ collections:
               - { label: "Text", name: "text", widget: "text" }
       - name: "faq"
         label: "FAQ"
-        file: "content/home/faq.yml"
+        file: "playpress-studio-source/content/home/faq.yml"
         fields:
           - { label: "Kicker", name: "kicker", widget: "string" }
           - { label: "Title", name: "title", widget: "string" }
@@ -83,7 +83,7 @@ collections:
               - { label: "Answer", name: "a", widget: "text" }
       - name: "cta"
         label: "Call To Action"
-        file: "content/home/cta.yml"
+        file: "playpress-studio-source/content/home/cta.yml"
         fields:
           - { label: "Heading", name: "title", widget: "string" }
           - { label: "Text", name: "text", widget: "text" }
@@ -95,7 +95,7 @@ collections:
               - { label: "Link", name: "link", widget: "string" }
       - name: "footer"
         label: "Footer"
-        file: "content/home/footer.yml"
+        file: "playpress-studio-source/content/home/footer.yml"
         fields:
           - { label: "Copyright", name: "copyright", widget: "string" }
 
@@ -107,7 +107,7 @@ collections:
     files:
       - name: "samples"
         label: "Portfolio / Samples"
-        file: "content/samples.yml"
+        file: "playpress-studio-source/content/samples.yml"
         fields:
           - { label: "Kicker", name: "kicker", widget: "string" }
           - { label: "Title", name: "title", widget: "string" }
@@ -170,7 +170,7 @@ collections:
     files:
       - name: "packages"
         label: "Pricing / Packages"
-        file: "content/packages.yml"
+        file: "playpress-studio-source/content/packages.yml"
         fields:
           - { label: "Kicker", name: "kicker", widget: "string" }
           - { label: "Title", name: "title", widget: "string" }
@@ -202,7 +202,7 @@ collections:
   # ===== TESTIMONIALS =====
   - name: "testimonials"
     label: "Testimonials"
-    folder: "content/testimonials"
+    folder: "playpress-studio-source/content/testimonials"
     create: true
     slug: "{{slug}}"
     extension: "md"
@@ -216,7 +216,7 @@ collections:
   # ===== BLOG =====
   - name: "blog"
     label: "Blog"
-    folder: "content/blog"
+    folder: "playpress-studio-source/content/blog"
     create: true
     slug: "{{slug}}"
     extension: "md"
@@ -224,6 +224,7 @@ collections:
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish date", name: "date", widget: "datetime" }
+      - { label: "Featured image", name: "image", widget: "image", required: false }
       - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
 
@@ -235,7 +236,7 @@ collections:
     files:
       - name: "bio"
         label: "Bio"
-        file: "content/about/bio.yml"
+        file: "playpress-studio-source/content/about/bio.yml"
         fields:
           - { label: "Kicker", name: "kicker", widget: "string" }
           - { label: "Title", name: "title", widget: "string" }
@@ -245,14 +246,14 @@ collections:
             field: { label: "Paragraph (wrap a word in ** ** to bold)", name: "para", widget: "text" }
       - name: "portrait"
         label: "Portrait & Name"
-        file: "content/about/portrait.yml"
+        file: "playpress-studio-source/content/about/portrait.yml"
         fields:
           - { label: "Portrait image", name: "image", widget: "image" }
           - { label: "Name", name: "name", widget: "string" }
           - { label: "Role", name: "role", widget: "string" }
       - name: "creds"
         label: "Credential Cards"
-        file: "content/about/creds.yml"
+        file: "playpress-studio-source/content/about/creds.yml"
         fields:
           - label: "Credential cards"
             name: "credentials"
@@ -264,7 +265,7 @@ collections:
               - { label: "Gold style", name: "gold", widget: "boolean", default: false, required: false }
       - name: "fun"
         label: "Fun Note"
-        file: "content/about/fun.yml"
+        file: "playpress-studio-source/content/about/fun.yml"
         fields:
           - { label: "Fun note", name: "fun_note", widget: "text" }
 
@@ -276,7 +277,7 @@ collections:
     files:
       - name: "seo"
         label: "SEO"
-        file: "content/settings/seo.yml"
+        file: "playpress-studio-source/content/settings/seo.yml"
         fields:
           - { label: "Page title (SEO)", name: "title", widget: "string" }
           - { label: "Meta description (SEO)", name: "meta_description", widget: "text" }
@@ -284,7 +285,7 @@ collections:
           - { label: "Social image URL", name: "og_image", widget: "string", required: false }
       - name: "contact"
         label: "Global Contact"
-        file: "content/settings/contact.yml"
+        file: "playpress-studio-source/content/settings/contact.yml"
         fields:
           - { label: "Business name", name: "name", widget: "string" }
           - { label: "Tagline", name: "tagline", widget: "string" }

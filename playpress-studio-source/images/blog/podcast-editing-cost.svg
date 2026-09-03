@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FCF8F3"/><stop offset="1" stop-color="#F6E9E4"/></linearGradient></defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1040" cy="120" r="180" fill="#A9434E" opacity="0.08"/>
+  <circle cx="120" cy="560" r="200" fill="#A9434E" opacity="0.06"/>
+  <rect x="96" y="120" width="46" height="10" rx="5" fill="#A9434E"/>
+  <text x="96" y="172" font-family="system-ui, Arial" font-size="30" font-weight="700" fill="#A9434E" letter-spacing="2">PRICING</text>
+  <text x="96" y="310" font-family="system-ui, Arial" font-size="76" font-weight="800" fill="#2B1D18" letter-spacing="-2"><tspan x="96" dy="0">How much does podcast</tspan><tspan x="96" dy="92">editing cost in 2026?</tspan></text>
+  <text x="98" y="500" font-family="system-ui, Arial" font-size="22" font-weight="500" fill="#8A6F62">PLAYPRESS STUDIO</text>
+</svg>

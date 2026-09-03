@@ -27,28 +27,28 @@ reels:
   video: "https://www.youtube.com/embed/MtPTlAmz6xM"
 
 # B-roll / brand note
-broll_note: "to match your show's visual identity. The examples above show the core edit only — without those extras layered in."
+broll_note: "to match your show's visual identity. The examples above show the core edit only, without those extras layered in."
 
 # Optional styling note
-style_label: "Important — the look isn't locked to these samples"
+style_label: "Important: the look isn't locked to these samples"
 style_note: "The mastering, hook-selection, and editing technique every episode gets regardless of package. The visual look is scoped with you during onboarding."
 
 # Quote & title graphics
 graphics:
   label: "Quote & Title Graphics"
   headline: "Branded episode graphics, ready to post"
-  note: "One style sample, not a fixed template — layout, colors, and fonts are matched to your brand for every client."
+  note: "One style sample, not a fixed template; layout, colors, and fonts are matched to your brand for every client."
   items:
     - image: "samples/sample-title-graphic.png"
-      caption: "**Title graphic** — hooks the scroll before the episode even starts."
+      caption: "**Title graphic**: hooks the scroll before the episode even starts."
       alt: "Podcast episode title graphic"
       link: ""
     - image: "samples/sample-quote-graphic-no-image.png"
-      caption: "**Quote graphic** — pulled straight from your best on-air moments."
+      caption: "**Quote graphic**: pulled straight from your best on-air moments."
       alt: "Podcast quote graphic without guest photo"
       link: ""
     - image: "samples/sample-quote-graphic-with-image.png"
-      caption: "**Quote graphic (with guest photo)** — built for guest-driven episodes."
+      caption: "**Quote graphic (with guest photo)**: built for guest-driven episodes."
       alt: "Podcast quote graphic with guest photo"
       link: ""
 
