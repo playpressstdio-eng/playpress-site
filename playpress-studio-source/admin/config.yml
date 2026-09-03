@@ -9,7 +9,7 @@ backend:
   # add a base_url pointing at a deployed Sveltia Authenticator worker, e.g.:
   #   base_url: https://your-worker.workers.dev
 
-site_url: https://playpress-studio.netlify.app
+site_url: https://playpress-site.pages.dev
 logo_url: /logo-mark.png
 
 media_folder: "playpress-studio-source/images/uploads"

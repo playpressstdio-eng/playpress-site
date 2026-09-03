@@ -209,8 +209,8 @@ html = html
   // <head> SEO
   .replace('<!--SEOTITLE-->', esc(seo.title || 'PlayPress Studio | Podcasting, Done Right!'))
   .replace('<!--SEODESC-->', esc(seo.meta_description || ''))
-  .replaceAll('<!--SEOURL-->', esc(seo.canonical || 'https://playpress-studio.netlify.app/'))
-  .replaceAll('<!--OGIMAGE-->', esc(seo.og_image || 'https://playpress-studio.netlify.app/og-image.png'))
+  .replaceAll('<!--SEOURL-->', esc(seo.canonical || 'https://playpress-site.pages.dev/'))
+  .replaceAll('<!--OGIMAGE-->', esc(seo.og_image || 'https://playpress-site.pages.dev/og-image.png'))
   .replaceAll('<!--OGTITLE-->', esc((brand.name || 'PlayPress Studio') + ' | ' + (brand.tagline || 'Podcasting, Done Right.')))
   .replaceAll('<!--OGDESC-->', esc(seo.meta_description || 'Done-for-you podcast editing, vertical reels, show notes, and social scheduling by a dedicated solo producer.'))
   // nav
