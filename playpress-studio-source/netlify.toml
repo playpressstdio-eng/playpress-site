@@ -1,0 +1,10 @@
+# Netlify build configuration for PlayPress Studio
+[build]
+  command = "node build.js"
+  publish = "dist"
+
+# Serve the CMS at /admin/ and don't cache it aggressively
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200

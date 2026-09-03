@@ -1,0 +1,63 @@
+# Decap CMS configuration — content editing for PlayPress Studio
+# Requires: your Netlify site connected to a Git repo, with Identity + Git Gateway enabled.
+
+backend:
+  name: git-gateway
+  branch: main
+
+# Where the CMS loads from (your deployed site domain)
+site_url: https://playpress-studio.netlify.app
+logo_url: /logo-mark.png
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  # ---------- BLOG POSTS ----------
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Hero Image", name: "image", widget: "image", required: false }
+      - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  # ---------- TESTIMONIALS ----------
+  - name: "testimonials"
+    label: "Testimonials"
+    folder: "content/testimonials"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Client Name", name: "name", widget: "string" }
+      - { label: "Role / Title", name: "role", widget: "string", required: false }
+      - { label: "Quote", name: "quote", widget: "text" }
+      - { label: "Show or Link", name: "link", widget: "string", required: false }
+
+  # ---------- PAGES / SETTINGS ----------
+  - name: "pages"
+    label: "Site Sections"
+    files:
+      - name: "about"
+        label: "About Section"
+        file: "content/about.md"
+        fields:
+          - { label: "Intro", name: "intro", widget: "text" }
+          - { label: "Bio", name: "bio", widget: "markdown" }
+          - { label: "Fun Note", name: "fun", widget: "text" }
+      - name: "contact"
+        label: "Contact & Socials"
+        file: "content/contact.md"
+        fields:
+          - { label: "Business Email", name: "email", widget: "string" }
+          - { label: "WhatsApp", name: "whatsapp", widget: "string" }
+          - { label: "LinkedIn", name: "linkedin", widget: "string" }
+          - { label: "Calendly", name: "calendly", widget: "string" }

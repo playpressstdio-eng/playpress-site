@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PlayPress Studio — Podcasting, Done Right!</title>
+<meta name="description" content="Done-for-you podcast editing, vertical reels, show notes, and social media scheduling by a dedicated solo producer.">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://playpress-studio.netlify.app/">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+
+<!-- Open Graph / social preview -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="PlayPress Studio — Podcasting, Done Right!">
+<meta property="og:description" content="Done-for-you podcast editing, vertical reels, show notes, and social media scheduling by a dedicated solo producer.">
+<meta property="og:url" content="https://playpress-studio.netlify.app/">
+<meta property="og:site_name" content="PlayPress Studio">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PlayPress Studio — Podcasting, Done Right!">
+<meta name="twitter:description" content="Done-for-you podcast editing, vertical reels, show notes, and social media scheduling by a dedicated solo producer.">
+<!-- Social preview image: replace /og-image.png with your real 1200x630 image path -->
+<meta property="og:image" content="https://playpress-studio.netlify.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="PlayPress Studio — podcast editing, reels, show notes, and social scheduling">
+<meta name="twitter:image" content="https://playpress-studio.netlify.app/og-image.png">
+
+<!-- Google Search Console verification: replace CONTENT value with the real code Search Console gives you -->
+<meta name="google-site-verification" content="RsuA_oRkhVA7iH7YDESIRx6xAnAXmnByKJi4mA0oIdA" />
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "PlayPress Studio",
+  "description": "Done-for-you podcast editing, vertical reels, show notes, and social media scheduling by a dedicated solo producer.",
+  "url": "https://playpress-studio.netlify.app/",
+  "email": "playpress.stdio@gmail.com",
+  "areaServed": "Worldwide",
+  "priceRange": "$$",
+  "sameAs": ["https://www.linkedin.com/in/john-lloyd-sarez-68624718b"]
+}
+</script>
+
+<!-- FAQ structured data (matches the visible FAQ) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What do you need from me each week?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Just your raw audio/video files, your guest's name and bio, and any links you referenced. I handle the entire pipeline after recording." }
+    },
+    {
+      "@type": "Question",
+      "name": "How fast is the turnaround?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Standard delivery is 48 to 72 hours from receiving complete raw files." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do revisions work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Every episode includes up to two rounds of minor revisions requested within 5 business days of delivery." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a long-term contract?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Retainers are billed monthly with a simple 14-day written notice if you ever need to pause or cancel." }
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Sunlit Cherry-Blossom Palette — bright warm, refined */
+    --bg-base: #FCF8F3;
+    --bg-surface: rgba(255, 255, 255, 0.96);
+    --bg-surface-solid: #FFFFFF;
+    --bg-card-soft: #FAEFE6;
+    --bg-section-tint: rgba(250, 235, 223, 0.5);
+    
+    /* High-Contrast Readable Text */
+    --text-main: #2B1D18;       /* Deep warm espresso */
+    --text-body: #4A342E;       /* Rich warm umber */
+    --text-muted: #8A6F62;      /* Warm mauvette */
+    --text-light: #7C6257;      /* AA on warm white */
+    
+    /* Soft Rose Blossom Accent — warm, refined */
+    --accent: #C75B64;          /* Soft muted rose */
+    --accent-dark: #A9434E;     /* Deep petal-core berry */
+    --accent-soft: rgba(199, 91, 100, 0.10);
+    --accent-pill: #FAE7E4;     /* Soft peach blush */
+    
+    /* Warm Peach — sunlit secondary */
+    --gold: #D8895A;            /* Warm peach-apricot */
+    --gold-soft: rgba(216, 137, 90, 0.12);
+    
+    /* Borders & Shadows — warm blush neutral */
+    --border-light: rgba(146, 100, 86, 0.14);
+    --border-strong: rgba(146, 100, 86, 0.27);
+    --shadow-sm: 0 4px 16px rgba(140, 82, 72, 0.06);
+    --shadow-md: 0 10px 30px rgba(140, 82, 72, 0.09);
+    --shadow-lg: 0 20px 48px rgba(140, 82, 72, 0.12);
+    --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg-base);
+    color: var(--text-body);
+    font-family: var(--font);
+    line-height: 1.65;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Sunlit Ambient Sakura Wash */
+  .mesh-backdrop {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: -2;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 8% 8%, rgba(252, 233, 220, 0.5) 0%, transparent 42%),
+      radial-gradient(circle at 94% 18%, rgba(252, 223, 214, 0.32) 0%, transparent 40%),
+      radial-gradient(circle at 50% 94%, rgba(252, 228, 213, 0.34) 0%, transparent 52%),
+      radial-gradient(circle at 82% 58%, rgba(252, 220, 212, 0.2) 0%, transparent 40%),
+      linear-gradient(180deg, #FCF8F3 0%, #F9ECE1 100%);
+  }
+
+  /* Drifting Blossom Petals */
+  .petals-container {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .petal {
+    position: absolute;
+    top: -24px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(250, 200, 190, 0.38));
+    border: 1px solid rgba(200, 120, 110, 0.28);
+    border-radius: 12px 1px 12px 1px;
+    opacity: 0;
+    box-shadow: 0 2px 6px rgba(160, 90, 80, 0.10);
+    animation: driftDown 15s linear infinite;
+  }
+  .petal.gold {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(250, 196, 152, 0.38));
+    border: 1px solid rgba(216, 137, 90, 0.28);
+    box-shadow: 0 2px 6px rgba(190, 120, 70, 0.10);
+  }
+  .p1 { left: 6%; width: 18px; height: 22px; animation-duration: 16s; animation-delay: 0s; }
+  .p2 { left: 22%; width: 14px; height: 18px; animation-duration: 20s; animation-delay: 4s; }
+  .p3 { left: 42%; width: 20px; height: 25px; animation-duration: 17s; animation-delay: 1.5s; }
+  .p4 { left: 64%; width: 15px; height: 19px; animation-duration: 19s; animation-delay: 6s; }
+  .p5 { left: 82%; width: 19px; height: 23px; animation-duration: 21s; animation-delay: 2s; }
+  .p6 { left: 94%; width: 14px; height: 18px; animation-duration: 18s; animation-delay: 8s; }
+  .p7 { left: 34%; width: 16px; height: 20px; animation-duration: 22s; animation-delay: 10s; }
+  .p8 { left: 74%; width: 13px; height: 17px; animation-duration: 18.5s; animation-delay: 12s; }
+
+  @keyframes driftDown {
+    0% { opacity: 0; transform: translateY(0) translateX(0) rotate(0deg); }
+    12% { opacity: 0.85; }
+    88% { opacity: 0.85; }
+    100% { opacity: 0; transform: translateY(480px) translateX(60px) rotate(360deg); }
+  }
+
+  a { text-decoration: none; color: inherit; }
+  /* Skip-to-content for keyboard users */
+  .skip-link {
+    position: absolute; left: -999px; top: 0; z-index: 200;
+    background: var(--accent); color: #FFF; font-weight: 700;
+    padding: 12px 20px; border-radius: 0 0 8px 0;
+  }
+  .skip-link:focus { left: 0; }
+  /* Visible focus for keyboard users */
+  a:focus-visible, button:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  /* Respect users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+  .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 92px 0; position: relative; }
+  @media (max-width: 768px) { section { padding: 56px 0; } }
+
+  /* NAVIGATION */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(252, 248, 243, 0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-light);
+  }
+  nav .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 72px;
+  }
+  
+  /* Brand Logo Lockup */
+  .brand-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    font-size: 19px;
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -0.025em;
+    line-height: 1;
+  }
+  .brand-logo svg { display: block; flex-shrink: 0; }
+  .brand-logo-text {
+    display: flex; flex-direction: column; justify-content: center; gap: 2px;
+  }
+  .brand-logo-title {
+    font-size: 19px; font-weight: 800; color: var(--text-main); letter-spacing: -0.025em;
+  }
+  .brand-logo-sub {
+    font-size: 9px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold);
+  }
+  
+  .navlinks { display: flex; gap: 28px; font-size: 14.5px; font-weight: 600; color: var(--text-body); }
+  .navlinks a { transition: color 0.2s; }
+  .navlinks a:hover { color: var(--accent); }
+  /* Mobile menu */
+  .nav-toggle {
+    display: none; background: none; border: none; cursor: pointer;
+    width: 40px; height: 40px; border-radius: 8px;
+    align-items: center; justify-content: center; flex-direction: column; gap: 5px;
+    padding: 0; position: relative; z-index: 102;
+  }
+  .nav-toggle span {
+    display: block; width: 22px; height: 2px; border-radius: 2px;
+    background: var(--text-main); transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+  .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu {
+    display: none; flex-direction: column; gap: 4px;
+    background: rgba(252, 248, 243, 0.98);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-light);
+    padding: 10px 24px 20px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-size: 15px; font-weight: 700; color: var(--text-body);
+    padding: 11px 4px; border-radius: 8px; border-bottom: 1px solid var(--border-light);
+  }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover { color: var(--accent); }
+  .mobile-menu .btn-nav { margin-top: 10px; text-align: center; }
+  .btn-nav {
+    font-size: 13.5px; font-weight: 700; padding: 9px 18px;
+    background: var(--accent); color: #FFF; border-radius: 8px;
+    transition: all 0.2s ease; box-shadow: 0 3px 10px rgba(154, 68, 88, 0.22);
+  }
+  .btn-nav:hover { background: var(--accent-dark); transform: translateY(-1px); }
+  @media (max-width: 820px) {
+    .nav-toggle { display: flex; }
+    .navlinks { display: none; }
+  }
+
+  /* HERO */
+  .hero {
+    text-align: center; position: relative; overflow: hidden;
+    min-height: calc(100vh - 72px);
+    display: flex; align-items: center; justify-content: center;
+    padding: 64px 0;
+  }
+  @media (max-width: 768px) { .hero { min-height: calc(100vh - 72px); padding: 48px 0; } }
+  .eyebrow-pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 16px; border-radius: 999px;
+    background: var(--accent-pill); border: 1px solid var(--border-strong);
+    color: var(--accent-dark); font-size: 13px; font-weight: 700;
+    letter-spacing: 0.01em; margin-bottom: 22px;
+  }
+  .eyebrow-pill span { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+  h1 {
+    font-size: clamp(34px, 5.2vw, 54px);
+    font-weight: 800; line-height: 1.16; letter-spacing: -0.03em;
+    color: var(--text-main); max-width: 22ch; margin: 0 auto;
+    text-wrap: balance;
+  }
+  h1 span { color: var(--accent); }
+  .hero p.lede {
+    margin: 22px auto 0; font-size: 18.5px; color: var(--text-body);
+    max-width: 48ch; line-height: 1.6; font-weight: 500;
+    text-wrap: balance;
+  }
+  .hero-ctas {
+    margin-top: 36px; display: flex; justify-content: center;
+    gap: 14px; flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-block;
+    background: var(--accent); color: #FFF; font-weight: 700; font-size: 15px;
+    padding: 14px 28px; border-radius: 8px; transition: all 0.2s ease;
+    box-shadow: 0 4px 14px rgba(154, 68, 88, 0.24);
+  }
+  .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
+  .btn-secondary {
+    display: inline-block;
+    background: var(--bg-surface-solid); color: var(--text-main);
+    border: 1px solid var(--border-strong); font-weight: 700; font-size: 15px;
+    padding: 14px 26px; border-radius: 8px; transition: all 0.2s ease;
+  }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+
+  /* SECTION HEADERS */
+  .section-head { text-align: center; margin-bottom: 48px; }
+  .kicker {
+    font-size: 12px; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--gold); margin-bottom: 6px;
+  }
+  h2 {
+    font-size: clamp(26px, 3.6vw, 38px);
+    font-weight: 800; line-height: 1.2; letter-spacing: -0.02em;
+    color: var(--text-main); text-wrap: balance;
+  }
+  .section-sub {
+    font-size: 16px; color: var(--text-body); max-width: 52ch;
+    margin: 10px auto 0; font-weight: 500;
+  }
+
+  /* HOW IT WORKS */
+  .steps-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 800px) { .steps-grid { grid-template-columns: 1fr; } }
+  .step-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    padding: 32px 26px;
+    box-shadow: var(--shadow-sm);
+    backdrop-filter: blur(8px);
+    position: relative;
+    overflow: hidden;
+  }
+  .step-card::before {
+    content: ''; position: absolute; left: 0; top: 0; width: 4px; height: 100%;
+    background: var(--accent);
+  }
+  .step-badge {
+    font-size: 11px; font-weight: 800; letter-spacing: 0.06em;
+    color: var(--accent); margin-bottom: 12px; text-transform: uppercase;
+  }
+  .step-card h3 { font-size: 19px; font-weight: 800; margin-bottom: 8px; color: var(--text-main); }
+  .step-card p { font-size: 14.5px; color: var(--text-body); line-height: 1.6; }
+
+  /* 1-TO-6 ASSET ENGINE SHOWCASE */
+  .engine-showcase {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-strong);
+    border-radius: 20px;
+    padding: 40px 32px;
+    margin-top: 40px;
+    box-shadow: var(--shadow-sm);
+  }
+  .engine-title {
+    display: flex; justify-content: space-between; align-items: baseline;
+    border-bottom: 1px solid var(--border-light); padding-bottom: 16px; margin-bottom: 24px;
+    flex-wrap: wrap; gap: 10px;
+  }
+  .engine-title h3 { font-size: 22px; font-weight: 800; color: var(--text-main); }
+  .engine-title span { font-size: 13px; font-weight: 700; color: var(--gold); }
+  .asset-matrix {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+  }
+  @media (max-width: 768px) { .asset-matrix { grid-template-columns: 1fr; } }
+  .asset-item {
+    background: var(--bg-surface-solid);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 18px;
+    display: flex; align-items: flex-start; gap: 12px;
+  }
+  .asset-icon {
+    width: 32px; height: 32px; border-radius: 8px;
+    background: var(--accent-pill); color: var(--accent-dark);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 13.5px; flex-shrink: 0;
+  }
+  .asset-item b { display: block; font-size: 15px; color: var(--text-main); margin-bottom: 2px; font-weight: 700; }
+  .asset-item small { display: block; font-size: 13.5px; color: var(--text-body); line-height: 1.45; }
+
+  /* PORTFOLIO GRID */
+  .portfolio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+  .portfolio-media { width: 100%; border-radius: 12px; border: 1px solid var(--border-light); margin-bottom: 16px; box-shadow: var(--shadow-sm); }
+  .reel-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; }
+  @media (max-width: 900px) { .reel-grid { grid-template-columns: 1fr; gap: 28px; text-align: center; } }
+  .samples-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media (max-width: 800px) { .portfolio-grid { grid-template-columns: 1fr; } .samples-grid-3 { grid-template-columns: 1fr; } }
+
+  /* TESTIMONIALS (populated by the build) */
+  .testimonials-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    align-items: stretch;
+  }
+  @media (max-width: 900px) { .testimonials-grid { grid-template-columns: 1fr; } }
+  .testimonial-card {
+    background: var(--bg-surface-solid);
+    border: 1px solid var(--border-light);
+    border-left: 4px solid var(--accent);
+    border-radius: 14px; padding: 26px 24px;
+    box-shadow: var(--shadow-sm);
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .testimonial-card .quote-mark {
+    font-size: 34px; line-height: 1; color: var(--accent);
+    font-family: Georgia, serif;
+  }
+  .testimonial-card blockquote {
+    font-size: 15px; color: var(--text-body); line-height: 1.6;
+    margin: 0; font-style: italic;
+  }
+  .testimonial-card .t-author { margin-top: auto; }
+  .testimonial-card .t-name { font-size: 15px; font-weight: 700; color: var(--text-main); }
+  .testimonial-card .t-role { font-size: 12.5px; color: var(--text-muted); }
+
+  /* Highlighted distinction notes — high-emphasis callouts */
+  .distinction-note {
+    background: linear-gradient(180deg, #FFFFFF 0%, #FFFBFD 100%);
+    border: 2px solid var(--border-strong);
+    border-left: 6px solid var(--accent);
+    border-radius: 16px;
+    padding: 22px 26px;
+    box-shadow: var(--shadow-md);
+    display: flex; gap: 18px; align-items: flex-start;
+    margin: 32px 0 0;
+  }
+  .distinction-note.dn-top { margin-top: 0; }
+  .distinction-note .dn-icon {
+    flex-shrink: 0; width: 52px; height: 52px; border-radius: 12px;
+    background: var(--accent-pill); border: 1px solid var(--border-strong);
+    display: flex; align-items: center; justify-content: center; font-size: 25px; line-height: 1;
+  }
+  .distinction-note .dn-body { flex: 1; min-width: 200px; }
+  .distinction-note .dn-label {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11.5px; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.06em; color: var(--accent-dark); margin-bottom: 7px;
+  }
+  .distinction-note .dn-label::before {
+    content: ''; width: 8px; height: 8px; border-radius: 50%;
+    background: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft);
+  }
+  .distinction-note p { font-size: 15px; color: var(--text-body); line-height: 1.65; margin: 0; }
+  .distinction-note p strong { color: var(--text-main); }
+  .distinction-note.gold { border-left-color: var(--gold); }
+  .distinction-note.gold .dn-icon { background: var(--gold-soft); border-color: rgba(196,120,43,0.3); }
+  .distinction-note.gold .dn-label { color: #C46A34; }
+  .distinction-note.gold .dn-label::before { background: var(--gold); box-shadow: 0 0 0 3px var(--gold-soft); }
+  @media (max-width: 600px) { .distinction-note { flex-direction: column; align-items: flex-start; gap: 14px; } }
+
+  /* RETAINERS: 3 TIERS WITH HOVER EFFECTS */
+  .pkg-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    align-items: stretch;
+  }
+  @media (max-width: 960px) { .pkg-grid { grid-template-columns: 1fr; } }
+  .pkg-card {
+    background: var(--bg-surface-solid);
+    border: 1px solid var(--border-light);
+    border-radius: 18px;
+    padding: 34px 26px;
+    position: relative;
+    display: flex; flex-direction: column;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  .pkg-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(154, 68, 88, 0.16);
+    border-color: var(--border-strong);
+  }
+  .pkg-card { isolation: isolate; }
+  .sparkle {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%;
+    z-index: 5;
+    opacity: 0;
+    animation: sparklePop 0.9s ease-out forwards;
+  }
+  @keyframes sparklePop {
+    0% { opacity: 0; transform: scale(0) translateY(0); }
+    25% { opacity: 1; }
+    100% { opacity: 0; transform: scale(1) translateY(-34px); }
+  }
+  .pkg-card.founder {
+    border: 1.5px solid var(--gold);
+    background: linear-gradient(180deg, #FFFFFF 0%, #FFFDF8 100%);
+    box-shadow: var(--shadow-md);
+  }
+  .pkg-card.founder:hover {
+    border-color: var(--gold);
+    box-shadow: 0 20px 45px rgba(224, 138, 78, 0.2);
+  }
+  .pkg-card.featured {
+    border: 2px solid var(--accent);
+    background: #FFFFFF;
+    box-shadow: var(--shadow-lg);
+  }
+  .pkg-card.featured:hover {
+    box-shadow: 0 24px 50px rgba(154, 68, 88, 0.24);
+  }
+  .pkg-pill {
+    position: absolute; top: -12px; left: 24px;
+    background: var(--accent); color: #FFF;
+    font-size: 11px; font-weight: 800; padding: 3px 12px;
+    border-radius: 6px; letter-spacing: 0.04em; text-transform: uppercase;
+  }
+  .pkg-pill.gold { background: var(--gold); color: #FFF; }
+  .pkg-card h3 { font-size: 21px; font-weight: 800; color: var(--text-main); }
+  .pkg-card .pkg-desc { font-size: 13.5px; color: var(--text-body); margin-top: 6px; min-height: 42px; line-height: 1.5; }
+  .pkg-price { font-size: 36px; font-weight: 800; color: var(--text-main); margin: 16px 0 2px; }
+  .pkg-price span { font-size: 14.5px; font-weight: 500; color: var(--text-muted); }
+  .founding-badge-inline {
+    font-size: 12px; font-weight: 700; color: var(--gold);
+    margin-bottom: 18px; display: inline-flex; align-items: center; gap: 5px;
+  }
+  .pkg-card ul { list-style: none; margin-bottom: 26px; flex-grow: 1; }
+  .pkg-card li {
+    padding: 10px 0; border-top: 1px solid var(--border-light);
+    font-size: 14px; color: var(--text-body);
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .pkg-card li span.check {
+    color: var(--accent); font-weight: 800; font-size: 14px; flex-shrink: 0; line-height: 1.4;
+  }
+  .pkg-card.founder li span.check { color: var(--gold); }
+  .pkg-card li span.text { flex: 1; line-height: 1.45; }
+  .pkg-card .btn-pkg {
+    display: block; text-align: center; width: 100%; padding: 12px; border-radius: 8px;
+    font-size: 14px; font-weight: 700; transition: all 0.2s ease; cursor: pointer;
+  }
+  .pkg-card.featured .btn-pkg { background: var(--accent); color: #FFF; }
+  .pkg-card.featured .btn-pkg:hover { background: var(--accent-dark); }
+  .pkg-card.founder .btn-pkg { background: var(--gold); color: #FFF; }
+  .pkg-card.founder .btn-pkg:hover { background: #C46A34; }
+  .pkg-card:not(.featured):not(.founder) .btn-pkg { background: var(--bg-surface-solid); border: 1.5px solid var(--border-strong); color: var(--text-main); }
+  .pkg-card:not(.featured):not(.founder) .btn-pkg:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ABOUT THE PRODUCER */
+  .about-box {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    border-radius: 20px;
+    padding: 48px 40px;
+    box-shadow: var(--shadow-sm);
+  }
+  .about-grid {
+    display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 52px; align-items: center;
+  }
+  @media (max-width: 880px) { .about-grid { grid-template-columns: 1fr; gap: 40px; } }
+  .about-text .kicker { margin-bottom: 8px; }
+  .about-text h2 {
+    font-size: clamp(24px, 3.2vw, 34px); line-height: 1.2;
+    margin-bottom: 20px; letter-spacing: -0.025em;
+  }
+  .about-text p { font-size: 15px; color: var(--text-body); line-height: 1.7; margin-bottom: 16px; }
+  .about-text p:last-child { margin-bottom: 0; }
+  .about-fun {
+    margin-top: 22px; padding: 16px 20px;
+    background: var(--accent-soft); border: 1px solid var(--border-strong);
+    border-left: 4px solid var(--accent); border-radius: 12px;
+    font-size: 14px; color: var(--text-body); line-height: 1.6;
+  }
+  .about-fun strong { color: var(--accent-dark); }
+  .about-name {
+    display: inline-block; font-size: 13px; font-weight: 700; color: var(--accent-dark);
+    background: var(--accent-pill); border: 1px solid var(--border-strong);
+    border-radius: 999px; padding: 5px 14px; margin-bottom: 16px;
+    letter-spacing: 0.02em;
+  }
+
+  /* Producer Portrait */
+  .about-portrait { position: relative; margin: 0 auto; max-width: 400px; }
+  .about-portrait img {
+    width: 100%; display: block; border-radius: 24px;
+    border: 1px solid var(--border-light); box-shadow: var(--shadow-lg);
+  }
+  .about-portrait::before {
+    content: ''; position: absolute; z-index: -1;
+    inset: -20px -20px auto auto; width: 128px; height: 128px;
+    border-radius: 50%; background: var(--accent-pill);
+    border: 1px solid var(--border-strong);
+  }
+  .about-portrait::after {
+    content: ''; position: absolute; z-index: -1;
+    inset: auto auto -20px -16px; width: 108px; height: 108px;
+    border-radius: 26px; background: var(--gold-soft);
+    border: 1px solid rgba(224, 138, 78, 0.22);
+  }
+  .badge-name {
+    position: absolute; bottom: 22px; left: -14px;
+    background: var(--bg-surface-solid); border: 1px solid var(--border-strong);
+    border-radius: 12px; padding: 10px 16px; box-shadow: var(--shadow-md);
+    font-size: 14px; font-weight: 800; color: var(--text-main); line-height: 1.2;
+  }
+  .badge-name small { display: block; font-size: 11px; font-weight: 600; color: var(--text-muted); letter-spacing: 0.02em; }
+
+  /* Right-Side Credential Cards */
+  .creds-container { display: flex; flex-direction: column; gap: 14px; }
+  .creds-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 40px; }
+  @media (max-width: 880px) { .creds-row { grid-template-columns: 1fr; } }
+  .cred-card {
+    background: #FFFFFF; border: 1px solid var(--border-light); border-left: 4px solid var(--accent);
+    border-radius: 12px; padding: 18px 20px; box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .cred-card:hover { transform: translateY(-2px); border-color: var(--border-strong); }
+  .cred-card.gold { border-left-color: var(--gold); }
+  .cred-card.gold .cred-tag { color: #C46A34; background: var(--gold-soft); }
+  .cred-card-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
+  .cred-card strong { font-size: 15px; color: var(--text-main); font-weight: 700; }
+  .cred-tag {
+    font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;
+    color: var(--accent-dark); background: var(--accent-pill); padding: 2px 8px; border-radius: 4px; white-space: nowrap;
+  }
+  .cred-card span { font-size: 13.5px; color: var(--text-body); line-height: 1.5; display: block; }
+
+  /* FAQ */
+  .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 768px) { .faq-grid { grid-template-columns: 1fr; } }
+  .faq-item { background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: 14px; padding: 22px 24px; }
+  .faq-item h4 { font-size: 15.5px; font-weight: 700; color: var(--text-main); margin-bottom: 6px; }
+  .faq-item p { font-size: 14px; color: var(--text-body); line-height: 1.6; }
+
+  /* CALL TO ACTION */
+  .cta-banner {
+    background: linear-gradient(135deg, #2D1420 0%, #1A0A12 100%);
+    color: #FFF; border-radius: 20px; padding: 60px 32px; text-align: center;
+    box-shadow: 0 16px 40px rgba(45, 20, 32, 0.25);
+  }
+  .cta-banner h2 { color: #FFF; margin-bottom: 12px; font-size: clamp(26px, 3.8vw, 40px); }
+  .cta-banner p { color: #EADCE2; max-width: 46ch; margin: 0 auto 30px; font-size: 16.5px; }
+  .cta-banner .btn-primary { display: inline-block; background: #FFFDFE; color: #2D1420; padding: 15px 30px; border-radius: 8px; font-weight: 700; transition: transform 0.2s ease;}
+  .cta-banner .btn-primary:hover { background: #FFF; transform: translateY(-1px); }
+
+  footer {
+    padding: 40px 0; text-align: center;
+    color: var(--text-light); font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
+<div class="mesh-backdrop"></div>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="wrap">
+    <a href="#" class="brand-logo" aria-label="PlayPress Studio Homepage">
+      <img src="/logo-mark.png" alt="PlayPress Studio logo" width="44" height="20" style="height:22px; width:auto; display:block;">
+      PlayPress Studio
+    </a>
+    <div class="navlinks">
+      <a href="#how-it-works">How It Works</a>
+      <a href="#portfolio">Samples</a>
+      <a href="#retainers">Retainers</a>
+      <a href="#about">About</a>
+      <a href="#faq">FAQ</a><a href="/blog/">Blog</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="https://calendly.com/playpress-stdio/30min" target="_blank" rel="noopener" class="btn-nav">Book Discovery Call</a>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#how-it-works">How It Works</a>
+    <a href="#portfolio">Samples</a>
+    <a href="#retainers">Retainers</a>
+    <a href="#about">About</a>
+    <a href="#faq">FAQ</a><a href="/blog/">Blog</a>
+    <a href="https://calendly.com/playpress-stdio/30min" target="_blank" rel="noopener" class="btn-nav">Book Discovery Call</a>
+  </div>
+</nav>
+
+<main id="main-content">
+<!-- HERO -->
+<section class="hero">
+  <div class="petals-container" aria-hidden="true">
+    <div class="petal p1"></div>
+    <div class="petal gold p2"></div>
+    <div class="petal p3"></div>
+    <div class="petal gold p4"></div>
+    <div class="petal p5"></div>
+    <div class="petal gold p6"></div>
+    <div class="petal p7"></div>
+    <div class="petal gold p8"></div>
+  </div>
+  <div class="wrap" style="position: relative; z-index: 1;">
+    <div class="eyebrow-pill"><span></span> Solo Producer Model • Capped Roster to Guarantee QA</div>
+    <h1>Turn each recorded episode into a full week of <span>audience-building content</span></h1>
+    <p class="lede">You record the conversation. I master the audio and video, cut vertical reels, design quote cards, and run your weekly social rollout end-to-end.</p>
+    <div class="hero-ctas">
+      <a href="https://calendly.com/playpress-stdio/30min" target="_blank" rel="noopener" class="btn-primary">Book a 15-Min Discovery Call</a>
+      <a href="#retainers" class="btn-secondary">View Retainer Plans</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works" style="padding-top: 72px; background: var(--bg-surface-solid); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">The Process</div>
+      <h2>Simple, predictable, zero back-and-forth</h2>
+      <p class="section-sub">A streamlined 3-step workflow designed so editing never takes you away from running your business.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-badge">Step 01</div>
+        <h3>1. Drop the raw file</h3>
+        <p>Upload your audio or video recording and guest info to your dedicated Drive folder. Your production work ends right there.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-badge">Step 02</div>
+        <h3>2. Production &amp; QC</h3>
+        <p>I balance and master the audio (-16 LUFS), cut out dead air, pull vertical reels, draft copy, and personally review every file before you see it.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-badge">Step 03</div>
+        <h3>3. Approved &amp; published</h3>
+        <p>Once you give the green light, I schedule the full episode to your podcast host and YouTube, then roll out your clips across social media all week.</p>
+      </div>
+    </div>
+
+    <!-- 1-TO-6 ASSET SHOWCASE -->
+    <div class="engine-showcase" id="deliverables">
+      <div class="engine-title">
+        <h3>What I produce from every single episode</h3>
+        <span>Complete multi-platform output:</span>
+      </div>
+      <div class="asset-matrix">
+        <div class="asset-item">
+          <div class="asset-icon">01</div>
+          <div>
+            <b>Master audio &amp; video</b>
+            <small>Clean, balanced, leveled episode ready for Spotify, Apple Podcasts, and YouTube.</small>
+          </div>
+        </div>
+        <div class="asset-item">
+          <div class="asset-icon">02</div>
+          <div>
+            <b>3–5 vertical short reels</b>
+            <small>Hook-driven 9:16 vertical video clips with dynamic captions for Shorts, Reels, and TikTok.</small>
+          </div>
+        </div>
+        <div class="asset-item">
+          <div class="asset-icon">03</div>
+          <div>
+            <b>SEO show notes</b>
+            <small>Timestamped highlights, key takeaways, guest bio, and formatted resource links.</small>
+          </div>
+        </div>
+        <div class="asset-item">
+          <div class="asset-icon">04</div>
+          <div>
+            <b>3 branded quote cards</b>
+            <small>Custom social graphics highlighting actionable insights and standout quotes.</small>
+          </div>
+        </div>
+        <div class="asset-item">
+          <div class="asset-icon">05</div>
+          <div>
+            <b>Email newsletter promo</b>
+            <small>A 100-word concise summary draft ready to send directly to your email list.</small>
+          </div>
+        </div>
+        <div class="asset-item">
+          <div class="asset-icon">06</div>
+          <div>
+            <b>Social media scheduling</b>
+            <small>Staggered rollout across LinkedIn and Instagram so your show stays active all week.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO / PROOF SAMPLES -->
+<section id="portfolio" style="padding-top: 72px; background: var(--bg-section-tint); border-bottom: 1px solid var(--border-light);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Work Samples</div>
+      <h2>Real production output, before &amp; after</h2>
+      <p class="section-sub">A quick look at the mastering, hook-selection, and visual assets produced for every episode. All editing handled via Adobe Premiere.</p>
+    </div>
+
+    <!-- Before & After Row -->
+    <div style="background: var(--bg-surface-solid); border: 1px solid var(--border-light); border-radius: 20px; padding: 40px; box-shadow: var(--shadow-sm); margin-bottom: 32px;">
+      <div style="text-align: center; margin-bottom: 32px;">
+        <div style="font-size: 11.5px; font-weight: 800; text-transform: uppercase; color: var(--accent-dark); letter-spacing: 0.06em; margin-bottom: 8px;">Audio &amp; Video Mastering</div>
+        <h3 style="font-size: 22px; font-weight: 800; color: var(--text-main);">Full-Episode Dialogue Cleanup</h3>
+      </div>
+      
+      <div class="portfolio-grid">
+        <!-- Raw -->
+        <div>
+          <div style="display: inline-block; background: #F3F0F2; color: var(--text-muted); font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 6px; margin-bottom: 12px;">BEFORE: RAW</div>
+          <iframe class="portfolio-media" height="280" src="https://www.youtube.com/embed/x-m5vAnLH80" title="Raw Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <p style="font-size: 14px; color: var(--text-body); line-height: 1.5;"><strong>Raw Video file directly recorded from a camera</strong> with audio captured from the camera microphone. No software filter pass. No dedicated microphone for recording. Everything is as raw as it can be.</p>
+        </div>
+        <!-- Edited -->
+        <div>
+          <div style="display: inline-block; background: var(--accent-soft); color: var(--accent-dark); font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 6px; margin-bottom: 12px;">AFTER: EDITED</div>
+          <iframe class="portfolio-media" height="280" src="https://www.youtube.com/embed/Iiv3y7XPmug" title="Edited Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <p style="font-size: 14px; color: var(--text-body); line-height: 1.5;"><strong>Color and light correction</strong> applied as a full filter pass. Filler words removed, and pacing made tighter than the raw file for seamless editing that delivers the idea immediately.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vertical Video Row -->
+    <div class="reel-grid" style="background: var(--bg-surface-solid); border: 1px solid var(--border-light); border-radius: 20px; padding: 40px; box-shadow: var(--shadow-sm);">
+      <div>
+        <div style="font-size: 11.5px; font-weight: 800; text-transform: uppercase; color: var(--gold); letter-spacing: 0.06em; margin-bottom: 8px;">Short-Form Repurposing</div>
+        <h3 style="font-size: 24px; font-weight: 800; color: var(--text-main); margin-bottom: 16px;">Hook-Driven Vertical Reels</h3>
+        <p style="font-size: 15px; color: var(--text-body); line-height: 1.6; margin-bottom: 16px;">Transformed directly from the raw footage. Paced for retention on YouTube Shorts, Instagram Reels, and TikTok.</p>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: var(--text-muted);"><span style="color: var(--accent); font-weight: 800;">✓</span> Dynamic captions added for silent viewing</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: var(--text-muted);"><span style="color: var(--accent); font-weight: 800;">✓</span> Auto face-framing to track subject movement</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: var(--text-muted);"><span style="color: var(--accent); font-weight: 800;">✓</span> Cut directly from the edited landscape version above</li>
+        </ul>
+      </div>
+      <div style="text-align: center;">
+        <iframe width="100%" style="max-width: 280px; height: 480px; border-radius: 16px; border: 4px solid var(--bg-card-soft); box-shadow: var(--shadow-md);" src="https://www.youtube.com/embed/MtPTlAmz6xM" title="YouTube Short" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- B-Roll / Brand Styling Note -->
+    <div class="distinction-note dn-top">
+      <div class="dn-icon" aria-hidden="true">🎬</div>
+      <div class="dn-body">
+        <span class="dn-label">Optional Extras</span>
+        <p><strong>B-roll and brand-specific styling can be added</strong> to match your show's visual identity. The examples above show the core edit only — without those extras layered in.</p>
+      </div>
+    </div>
+
+    <!-- Quote & Title Graphics Row -->
+    <div style="background: var(--bg-surface-solid); border: 1px solid var(--border-light); border-radius: 20px; padding: 40px; box-shadow: var(--shadow-sm); margin-bottom: 32px;">
+      <div style="text-align: center; margin-bottom: 32px;">
+        <div style="font-size: 11.5px; font-weight: 800; text-transform: uppercase; color: var(--gold); letter-spacing: 0.06em; margin-bottom: 8px;">Quote &amp; Title Graphics</div>
+        <h3 style="font-size: 22px; font-weight: 800; color: var(--text-main);">Branded episode graphics, ready to post</h3>
+      </div>
+      <div class="samples-grid-3">
+        <div>
+          <img src="samples/sample-title-graphic.png" alt="Sample title graphic" style="width: 100%; border-radius: 12px; border: 1px solid var(--border-light); box-shadow: var(--shadow-sm); margin-bottom: 12px;">
+          <p style="font-size: 13.5px; color: var(--text-body); line-height: 1.5; text-align: center;"><strong>Title graphic</strong> — hooks the scroll before the episode even starts.</p>
+        </div>
+        <div>
+          <img src="samples/sample-quote-graphic-no-image.png" alt="Sample quote graphic without guest photo" style="width: 100%; border-radius: 12px; border: 1px solid var(--border-light); box-shadow: var(--shadow-sm); margin-bottom: 12px;">
+          <p style="font-size: 13.5px; color: var(--text-body); line-height: 1.5; text-align: center;"><strong>Quote graphic</strong> — pulled straight from your best on-air moments.</p>
+        </div>
+        <div>
+          <img src="samples/sample-quote-graphic-with-image.png" alt="Sample quote graphic with guest photo" style="width: 100%; border-radius: 12px; border: 1px solid var(--border-light); box-shadow: var(--shadow-sm); margin-bottom: 12px;">
+          <p style="font-size: 13.5px; color: var(--text-body); line-height: 1.5; text-align: center;"><strong>Quote graphic (with guest photo)</strong> — built for guest-driven episodes.</p>
+        </div>
+      </div>
+      <p style="font-size: 13px; color: var(--text-muted); text-align: center; margin-top: 20px;">One style sample, not a fixed template — layout, colors, and fonts are matched to your brand for every client.</p>
+    </div>
+
+    <!-- Custom Style Note -->
+    <div class="distinction-note gold">
+      <div class="dn-icon" aria-hidden="true">🎨</div>
+      <div class="dn-body">
+        <span class="dn-label">Important — the style isn't locked to these samples</span>
+        <p><strong>What's shown above is our standard process</strong> — the mastering, hook-selection, and editing technique every episode gets, regardless of package. But the visual look (colors, graphic style, caption design) is separate from that, and isn't locked to what you see here. If your brand calls for a different style, we scope that with you during onboarding.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- RETAINERS -->
+<section id="retainers" style="background: var(--bg-surface-solid); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Retainer Plans</div>
+      <h2>Simple monthly plans, no agency bloat</h2>
+      <p class="section-sub">Transparent retainers with guaranteed 48–72h turnarounds and direct 1-on-1 access.</p>
+    </div>
+    <div class="pkg-grid">
+      
+      <!-- Founding Core Tier -->
+      <div class="pkg-card founder">
+        <div class="pkg-pill gold">Founding Rate • 3 Slots</div>
+        <h3>Founding Core</h3>
+        <div class="pkg-desc">Introductory 3-month rate for early partners in exchange for a testimonial and case study.</div>
+        <div class="pkg-price">$459<span> / month</span></div>
+        <div class="founding-badge-inline">✦ Locked in for first 3 months ($689/mo regular after)</div>
+        <ul>
+          <li><span class="check">✓</span><span class="text">Full audio + video edit of main episode</span></li>
+          <li><span class="check">✓</span><span class="text">SEO-structured show notes &amp; timestamps</span></li>
+          <li><span class="check">✓</span><span class="text">1 custom title &amp; thumbnail graphic</span></li>
+          <li><span class="check">✓</span><span class="text">Distribution to YouTube, Spotify &amp; Apple</span></li>
+          <li><span class="check">✓</span><span class="text">Up to 4 episodes per month (48–72h turnaround)</span></li>
+          <li><span class="check">✓</span><span class="text">2 rounds of revisions per episode</span></li>
+        </ul>
+        <a href="https://calendly.com/playpress-stdio/30min" target="_blank" rel="noopener" class="btn-pkg">Claim Founding Core</a>
+      </div>
+
+      <!-- Founding Growth & Social Engine Tier -->
+      <div class="pkg-card featured">
+        <div class="pkg-pill">Founding Engine • 3 Slots</div>
+        <h3>Founding Growth &amp; Social</h3>
+        <div class="pkg-desc">Complete podcast production and multi-channel social management at introductory beta pricing.</div>
+        <div class="pkg-price">$919<span> / month</span></div>
+        <div class="founding-badge-inline" style="color: var(--accent-dark);">✦ Locked in for first 3 months ($1,379/mo regular after)</div>
+        <ul>
+          <li><span class="check">✓</span><span class="text">Everything included in <strong>Core Production</strong></span></li>
+          <li><span class="check">✓</span><span class="text">3–5 vertical short-form video reels (captioned &amp; styled)</span></li>
+          <li><span class="check">✓</span><span class="text">3 branded quote graphics per episode</span></li>
+          <li><span class="check">✓</span><span class="text">100-word email newsletter promo draft</span></li>
+          <li><span class="check">✓</span><span class="text"><strong>Social media management:</strong> scheduled rollout across LinkedIn, IG, and Shorts</span></li>
+          <li><span class="check">✓</span><span class="text">Direct 1-on-1 communication via Slack or email</span></li>
+        </ul>
+        <a href="https://calendly.com/playpress-stdio/30min" target="_blank" rel="noopener" class="btn-pkg">Claim Founding Growth</a>
+      </div>
+
+      <!-- Standard Growth & Social Engine -->
+      <div class="pkg-card">
+        <h3>Growth &amp; Social (Standard)</h3>
+        <div class="pkg-desc">Standard retainer for ongoing partners seeking the complete podcast-to-lead engine.</div>
+        <div class="pkg-price">$1,379<span> / month</span></div>
+        <div class="founding-badge-inline" style="color: var(--text-muted);">✦ Full production + weekly social management</div>
+        <ul>
+          <li><span class="check">✓</span><span class="text">Full audio + video edit of main episode</span></li>
+          <li><span class="check">✓</span><span class="text">3–5 vertical short-form video reels</span></li>
+          <li><span class="check">✓</span><span class="text">3 branded quote graphics per episode</span></li>
+          <li><span class="check">✓</span><span class="text">Show notes, timestamps, &amp; email newsletter draft</span></li>
+          <li><span class="check">✓</span><span class="text">Scheduled weekly rollout across your channels</span></li>
+          <li><span class="check">✓</span><span class="text">Direct producer Slack / email access</span></li>
+        </ul>
+        <a href="https://calendly.com/playpress-stdio/30min" target="_blank" rel="noopener" class="btn-pkg">Select Standard Plan</a>
+      </div>
+
+    </div>
+
+    <!-- Booking / Deposit Requirement -->
+    <div style="border: 2px solid var(--accent-dark); border-radius: 16px; padding: 22px 28px; margin-top: 32px; max-width: 700px; margin-left: auto; margin-right: auto; background: var(--bg-surface-solid);">
+      <div style="font-size: 11.5px; font-weight: 800; text-transform: uppercase; color: var(--accent-dark); letter-spacing: 0.06em; margin-bottom: 8px;">Booking Requirement — not a discount or promo</div>
+      <p style="font-size: 14.5px; color: var(--text-main); line-height: 1.6; margin: 0;"><strong>A 50% deposit is required at signing to reserve your production slot</strong> (non-refundable, applies to every plan). The remaining 50% is due once your first month's package is delivered — full retainer applies every month after that.</p>
+    </div>
+
+    <!-- Custom Style Note -->
+    <p style="text-align: center; font-size: 14px; color: var(--text-muted); max-width: 620px; margin: 28px auto 0; line-height: 1.6;">
+      Every plan includes the same production technique and deliverables above. Want a different visual style for your graphics or reels — on-brand fonts, colors, or layout? That's a quick conversation during onboarding, not a separate tier.
+    </p>
+  </div>
+</section>
+
+<!-- ABOUT THE PRODUCER -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-box">
+      <div class="about-grid">
+
+        <!-- Producer Portrait -->
+        <div class="about-portrait">
+          <img src="images/producer-portrait.png" alt="John Lloyd Sarez — founder of PlayPress Studio" loading="lazy" width="400" height="500">
+          <div class="badge-name">John Lloyd Sarez<small>Founder &amp; Producer</small></div>
+        </div>
+
+        <div class="about-text">
+          <div class="kicker">About the Producer</div>
+          <h2>Agency-level output, delivered entirely solo</h2>
+          <p>Hi, I'm <strong>John Lloyd Sarez</strong> — founder and only producer of PlayPress Studio. I help founders and consultants turn every recorded episode into a full week of content, without them lifting a finger past the record button.</p>
+          <p>My path in wasn't the usual one. I graduated in Computer Engineering, and the pandemic hit before I'd ever set foot in a corporate office. My first break was writing podcast show-notes — back when that meant actually listening to every episode and writing it out by hand. One task led to the next: editing video, running socials, then leading a team of virtual assistants across a slate of client shows for over four years.</p>
+          <p>That time taught me the difference between content that's finished and content that's done right. When a show moves through many hands, an episode rarely gets one person's full, honest attention. So I built PlayPress Studio to be the opposite: one producer, your show end-to-end, and a roster I keep small on purpose.</p>
+          <p>I keep it to three clients at a time because it's the only way I can honestly promise the polish and the direct 1-on-1 access that scale simply can't.</p>
+          <div class="about-fun">
+            <strong>Off the clock:</strong> I read a lot of Chinese web novels — xianxia and xuanhuan, the long cultivation epics. Think Wattpad, but the authors are Chinese. And when it comes to choosing a hook or a cut, I go completely on gut feel. It hasn't steered me wrong yet.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Credential Cards -->
+      <div class="creds-row">
+        <div class="cred-card">
+          <div class="cred-card-head">
+            <strong>4+ Years Hands-On Experience</strong>
+            <span class="cred-tag">In the Trenches</span>
+          </div>
+          <span>Audio mastering, multicam video editing, and social scheduling across dozens of B2B niches.</span>
+        </div>
+
+        <div class="cred-card">
+          <div class="cred-card-head">
+            <strong>Zero Handoff Friction</strong>
+            <span class="cred-tag">1-on-1 Direct</span>
+          </div>
+          <span>I edit the episode, pull the viral hooks, draft the copy, and review the final output myself.</span>
+        </div>
+
+        <div class="cred-card">
+          <div class="cred-card-head">
+            <strong>Guaranteed Quality Pass</strong>
+            <span class="cred-tag">Capped Roster</span>
+          </div>
+          <span>Every link, timestamp, graphic, and caption is proofed before pre-delivery quality checks.</span>
+        </div>
+
+        <div class="cred-card gold">
+          <div class="cred-card-head">
+            <strong>AI-Augmented Workflow</strong>
+            <span class="cred-tag">Claude · ChatGPT · DeepSeek</span>
+          </div>
+          <span>I lean on AI to turn ideas into hooks, notes, and content angles faster — the polish is still manual.</span>
+        </div>
+
+        <div class="cred-card">
+          <div class="cred-card-head">
+            <strong>Team Leadership</strong>
+            <span class="cred-tag">Before I Went Solo</span>
+          </div>
+          <span>Years leading and delegating to a team of virtual assistants across client shows — the reason I now keep everything in one pair of hands.</span>
+        </div>
+
+        <div class="cred-card">
+          <div class="cred-card-head">
+            <strong>Engineer's Eye</strong>
+            <span class="cred-tag">BSCpE Grad</span>
+          </div>
+          <span>Computer Engineering background means systems thinking applied to your production pipeline, not just taste.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="padding-top: 0;">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Questions</div>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h4>What do you need from me each week?</h4>
+        <p>Just your raw audio/video files, your guest's name/bio, and any links you referenced. I handle the entire pipeline after recording.</p>
+      </div>
+      <div class="faq-item">
+        <h4>How fast is the turnaround?</h4>
+        <p>Standard delivery is 48 to 72 hours from receiving complete raw files.</p>
+      </div>
+      <div class="faq-item">
+        <h4>How do revisions work?</h4>
+        <p>Every episode includes up to two rounds of minor revisions requested within 5 business days of delivery.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Is there a long-term contract?</h4>
+        <p>No. Retainers are billed monthly with a simple 14-day written notice if you ever need to pause or cancel.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS (auto-filled by build) -->
+<section id="testimonials" style="background: var(--bg-surface-solid); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Client Words</div>
+      <h2>What partners say</h2>
+    </div>
+    <div class="testimonials-grid" id="testimonials-list">
+      <!-- Testimonial cards are injected here by the build. -->
+    </div>
+  </div>
+</section>
+
+<!-- CALL TO ACTION -->
+<section id="contact" style="padding-top: 0;">
+  <div class="wrap">
+    <div class="cta-banner">
+      <h2>Let’s talk about your show</h2>
+      <p>Book a quick 15-minute call to discuss your recording setup, production gaps, and how I can take distribution off your plate.</p>
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <a href="https://calendly.com/playpress-stdio/30min" target="_blank" rel="noopener" class="btn-primary">Schedule Discovery Call</a>
+        <a href="mailto:playpress.stdio@gmail.com" class="btn-primary" style="background: transparent; color: #FFF; border: 1px solid rgba(255,255,255,0.3);">Email Me Instead</a>
+        <a href="https://www.linkedin.com/in/john-lloyd-sarez-68624718b" target="_blank" rel="noopener" class="btn-primary" style="background: transparent; color: #FFF; border: 1px solid rgba(255,255,255,0.3);">Connect on LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 PlayPress Studio. Podcasting, Done Right. All rights reserved. <br> <a href="mailto:playpress.stdio@gmail.com" style="text-decoration: underline; margin-top: 4px; display: inline-block;">playpress.stdio@gmail.com</a> &nbsp;·&nbsp; <a href="https://wa.me/639776533414" target="_blank" rel="noopener" style="text-decoration: underline;">WhatsApp +63 977 653 3414</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/john-lloyd-sarez-68624718b" target="_blank" rel="noopener" style="text-decoration: underline;">LinkedIn</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Mobile menu toggle
+  var toggle = document.getElementById('navToggle');
+  var menu = document.getElementById('mobileMenu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', function () {
+      var open = menu.classList.toggle('open');
+      toggle.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+    });
+    menu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        menu.classList.remove('open');
+        toggle.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  var sparkleColors = ['#C75B64', '#D8895A', '#F3CDC3', '#FFFFFF'];
+  document.querySelectorAll('.pkg-card').forEach(function (card) {
+    var interval = null;
+    card.addEventListener('mouseenter', function () {
+      interval = setInterval(function () {
+        spawnSparkle(card);
+      }, 160);
+    });
+    card.addEventListener('mouseleave', function () {
+      clearInterval(interval);
+    });
+  });
+
+  function spawnSparkle(card) {
+    var s = document.createElement('div');
+    s.className = 'sparkle';
+    var size = 3 + Math.random() * 5;
+    s.style.width = size + 'px';
+    s.style.height = size + 'px';
+    s.style.left = (Math.random() * 90 + 5) + '%';
+    s.style.top = (Math.random() * 30 + 60) + '%';
+    s.style.background = sparkleColors[Math.floor(Math.random() * sparkleColors.length)];
+    s.style.boxShadow = '0 0 6px ' + s.style.background;
+    card.appendChild(s);
+    setTimeout(function () { s.remove(); }, 900);
+  }
+})();
+</script>
+</body>
+</html>
