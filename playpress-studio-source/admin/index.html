@@ -5,33 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
   <title>PlayPress Studio — Content Manager</title>
-  <!-- Branded look for the CMS login + editor -->
+  <!-- Branded warm look to match the site -->
   <style>
-    /* Warm blush theme so the CMS matches the site, not the default plain look */
     :root {
       --brand: #C75B64;
+      --berry: #A9434E;
       --bg: #FCF8F3;
     }
-    .nc-login-page {
-      background: linear-gradient(160deg, #FCF8F3 0%, #F7E7DC 100%) !important;
-    }
-    .nc-login-page * { font-family: 'Plus Jakarta Sans', system-ui, sans-serif !important; }
-    .nc-login-page .nc-github-auth-btn, .nc-login-page .btn-primary {
-      background: var(--brand) !important; border-color: var(--brand) !important;
-    }
-    /* Hide the default clunky branding, add a warm gradient card */
-    .nc-login-page .nc-login-card, .nc-login-card {
-      background: #FFFFFF !important;
-      border: 1px solid rgba(199,91,100,.18) !important;
-      border-radius: 16px !important;
-      box-shadow: 0 20px 48px rgba(140,82,72,.14) !important;
-    }
-    .nc-login-page a { color: var(--brand) !important; }
-    .nc-login-page input { border-radius: 8px; }
+    body { background: linear-gradient(160deg, #FCF8F3 0%, #F7E7DC 100%); }
   </style>
 </head>
 <body>
-  <!-- Decap CMS editor UI (free GUI for editing your site content) -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <!-- Sveltia CMS — free, open-source, Git-based editor (drop-in for Decap/Netlify CMS) -->
+  <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
 </body>
 </html>

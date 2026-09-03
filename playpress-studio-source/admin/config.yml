@@ -1,9 +1,13 @@
-# PlayPress Studio — Decap CMS config
-# Editing is open to any authenticated Identity user.
+# PlayPress Studio — Sveltia CMS config
+# Editing is open to any authenticated GitHub user. Requires the repo to be public.
 
 backend:
-  name: git-gateway
+  name: github
+  repo: playpressstdio-eng/playpress-site
   branch: main
+  # For one-click "Login with GitHub" (needed only if non-technical editors sign in),
+  # add a base_url pointing at a deployed Sveltia Authenticator worker, e.g.:
+  #   base_url: https://your-worker.workers.dev
 
 site_url: https://playpress-studio.netlify.app
 logo_url: /logo-mark.png

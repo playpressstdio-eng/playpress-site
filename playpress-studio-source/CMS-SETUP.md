@@ -1,70 +1,71 @@
-# PlayPress Studio — Decap CMS Setup Guide
+# PlayPress Studio — Sveltia CMS Setup Guide
 
-You now have a **free GUI content editor** (Decap CMS) AND an **auto-render build** so blog
-posts and testimonials appear on the site automatically. This guide walks you through the
-one-time setup. ~15 minutes.
+This site uses **Sveltia CMS** — a free, open-source, Git-backed content editor (a modern
+drop-in replacement for Decap/Netlify CMS). It reads the same `admin/config.yml`, so the
+collections, fields, and repeatable blocks are unchanged.
 
-**What's already built and working:** a `build.js` that reads your `content/` Markdown files
-and turns them into visible pages (blog listing + posts) and injects a testimonials section
-into the homepage. The public site uses the `dist/` output. New files you add in the CMS get
-rendered on the next build — no hand-editing HTML.
-
----
-
-## What this gives you
-- A CMS editor at **`https://your-site.netlify.app/admin/`**
-- Add / edit **Blog posts** and **Testimonials** in a form
-- Edit **About** and **Contact** details without touching code
-- Your custom design, colors, and animations stay exactly as-is
-
-## What it needs (one-time, then done)
-Decap CMS needs three things on Netlify. This is the one-time cost of getting a GUI.
-Do these once and you're set for good.
-
-### 1. Connect the site to a Git repository (GitHub)
-This is required for Decap's editor to save changes. Drag-and-drop-only deploy won't work
-with the CMS — the CMS edits files and pushes them to your repo, which Netlify then redeploys.
-
-1. Create a free GitHub account (github.com) if you don't have one.
-2. Create a **new repository** (e.g. `playpress-site`). Private is fine.
-3. Push the **source** folder into it — `index.html`, `build.js`, `netlify.toml`, `admin/`,
-   `content/`, `images/`, `samples/`, favicons, `robots.txt`, `sitemap.xml`. (You do NOT
-   push `dist/` — Netlify generates that during the build.)
-4. In Netlify: **Site settings → Build & deploy → Connect Git repository** → pick that repo.
-   Netlify reads `netlify.toml`, runs `node build.js`, and publishes from `dist/`.
-   From now on, editing happens on the repo / via the CMS — no more re-zipping.
-
-### 2. Enable Netlify Identity
-1. Netlify → **Site settings → Identity → Enable Identity service.**
-2. Under **Registration**, choose **Invite only** (or Public — your call).
-3. Under **Services → Git Gateway**, click **Enable**. (This links Identity to your repo.)
-
-### 3. Invite yourself as the editor
-1. **Identity → Invite users** → enter your email (e.g. sarez.johnlloyd@gmail.com).
-2. Click the invite link, set your password, log in.
-3. Now go to **`https://your-site.netlify.app/admin/`** — you'll see the editor.
+**What's already in place:** `admin/index.html` loads Sveltia, `admin/config.yml` defines all
+editable sections (Home, Samples, Packages, Testimonials, Blog, About, Site Settings).
+`build.js` reads your `content/` files and renders the site; new content shows up on the next
+build. Sveltia is already wired for the **GitHub backend** (the repo must be public).
 
 ---
 
-## What stays the same
-- The **public site** still looks and behaves identical — the CMS is just a hidden
-  back-office at `/admin/`.
-- Your **domain**, **custom design**, **petals**, **palette** — untouched.
+## Two things you still need to do once
 
-## What changes about how you deploy
-- **Before:** drag-and-drop a zip.
-- **After:** deploy from GitHub, and use `/admin/` to add content. Netlify rebuilds
-  automatically on every save. No more re-zipping to change a testimonial.
+### 1. Make the GitHub repo public
+Sveltia's free GitHub auth requires a **public** repository. In GitHub:
+**Settings → General → Danger Zone → Change visibility → Make public.**
+
+> No secrets live in the repo (no API keys, no passwords), so this is safe for a marketing site.
+
+### 2. Choose a login method
+Sveltia needs a way to authenticate with GitHub. Two options:
+
+**Option A — Personal Access Token (simplest, zero setup, free) — pick this if it's just you.**
+1. GitHub → **Settings → Developer settings → Personal access tokens → Tokens (classic)** →
+   **Generate new token.** (Or a fine-grained token with **Contents: Read & write** on this repo.)
+2. Scope: classic token → tick **`repo`** (full control). Copy it.
+3. Visit `https://your-site.pages.dev/admin/`, click **Login with GitHub**, then paste the token.
+
+That's it. No external services, no billing.
+
+**Option B — One-click "Login with GitHub" (needed only if non-technical editors will sign in).**
+1. Deploy Sveltia's authenticator to Cloudflare Workers (free): for/use
+   [github.com/sveltia/sveltia-cms-auth](https://github.com/sveltia/sveltia-cms-auth).
+2. Create a GitHub **OAuth App** (github.com → Settings → Developer settings → OAuth Apps),
+   set its Authorization callback URL to `https://YOUR-WORKER.workers.dev/callback`.
+3. Put the OAuth app's **Client ID / Client Secret** in the Worker as
+   `GITHUB_CLIENT_ID` / `GITHUB_CLIENT_SECRET`.
+4. In `admin/config.yml`, uncomment and point `base_url` at your Worker:
+   ```yaml
+   backend:
+     name: github
+     repo: playpressstdio-eng/playpress-site
+     branch: main
+     base_url: https://YOUR-WORKER.workers.dev
+   ```
+
+For a solo owner, **Option A is enough** — skip the OAuth app entirely.
 
 ---
 
-## Alternative if you do NOT want to connect Git
-If connecting a repo feels like too much, you have two fallbacks (both fully supported):
-- **Keep drag-and-drop (no CMS).** I can still add testimonials / blog sections to your
-  HTML directly — you just edit via code for bigger changes. The CMS files here are
-  harmless to leave, or we delete them.
-- **Just a `content/` folder + static publish:** I can write a tiny build script that takes
-  your Markdown posts and renders them into static HTML on the fly (no Git needed for the
-  *viewing*, but you'd still trigger builds somehow).
+## The automatic publishing flow
 
-Tell me which direction and I'll tailor the exact next steps.
+1. Open `https://your-site.pages.dev/admin/` → log in with GitHub.
+2. Edit / create a post (title, date, featured image, excerpt, body).
+3. Hit **Publish.** Sveltia commits the change to GitHub.
+4. The host rebuilds automatically; the page is live a moment later.
+
+---
+
+## Migrating from Netlify (if you're moving host)
+
+1. In Cloudflare: **Workers & Pages → Create → Pages → Connect to Git** → pick the repo.
+2. Set **Build command:** `node build.js` · **Build output directory:** `dist`
+   · **Root directory:** `playpress-studio-source`.
+3. Deploy. The `/admin/` folder and the whole site are served from the build output.
+
+**No `netlify.toml` needed on Cloudflare Pages** (it's a Netlify file; harmless to keep).
+Cloudflare free tier: **500 builds/month, unlimited bandwidth, free custom domains** —
+far more forgiving than Netlify's build-minute cap.
