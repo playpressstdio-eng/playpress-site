@@ -357,12 +357,10 @@ function samplesMain() {
     <div style="text-align:center"><iframe width="100%" style="max-width:280px;height:480px;border-radius:16px;border:4px solid var(--bg-card-soft);box-shadow:var(--shadow-md)" src="${esc(r.video)}" title="YouTube Short" frameborder="0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe></div>
   </div>
 
-  <div class="distinction-note dn-top"><div class="dn-icon" aria-hidden="true">🎬</div><div class="dn-body"><span class="dn-label">Optional Extras</span><p><strong>B-roll and brand-specific styling can be added</strong> ${esc(SAMPLES.broll_note || '')}</p></div></div>
-
   <div id="graphics" style="background:var(--bg-surface-solid);border:1px solid var(--border-light);border-radius:20px;padding:40px;box-shadow:var(--shadow-sm);margin-bottom:32px">
     <div style="text-align:center;margin-bottom:32px"><div style="font-size:11.5px;font-weight:800;text-transform:uppercase;color:var(--gold);letter-spacing:0.06em;margin-bottom:8px">${esc(g.label)}</div><h3 style="font-size:22px;font-weight:800;color:var(--text-main)">${esc(g.headline)}</h3></div>
     <div class="samples-grid-3">${arr(g.items).map(it => {
-      const imgEl = `<img src="${esc(it.image)}" alt="${esc(it.alt)}" loading="lazy" style="width:100%;border-radius:12px;border:1px solid var(--border-light);box-shadow:var(--shadow-sm);margin-bottom:12px">`;
+      const imgEl = `<img src="${esc(asset(it.image))}" alt="${esc(it.alt)}" loading="lazy" style="width:100%;border-radius:12px;border:1px solid var(--border-light);box-shadow:var(--shadow-sm);margin-bottom:12px">`;
       return `<div>${it.link ? `<a href="${esc(it.link)}" target="_blank" rel="noopener" style="display:block;text-decoration:none">${imgEl}</a>` : imgEl}<p style="font-size:13.5px;color:var(--text-body);line-height:1.5;text-align:center">${inlineMD(it.caption || '')}</p></div>`;
     }).join('')}</div>
     <p style="font-size:13px;color:var(--text-muted);text-align:center;margin-top:20px">${esc(g.note)}</p>
@@ -391,6 +389,8 @@ function samplesMain() {
     <p style="font-size:12.5px;color:var(--text-muted);text-align:center;margin-top:20px">${esc(em.note)}</p>
   </div>
 
+  <div class="distinction-note" style="margin-top:16px"><div class="dn-icon" aria-hidden="true">🎬</div><div class="dn-body"><span class="dn-label">Optional Extras</span><p><strong>B-roll and brand-specific styling can be added</strong> ${esc(SAMPLES.broll_note || '')}</p></div></div>
+
   <div class="distinction-note gold"><div class="dn-icon" aria-hidden="true">🎨</div><div class="dn-body"><span class="dn-label">${esc(SAMPLES.style_label || '')}</span><p><strong>What's shown above is our standard process</strong> ${esc(SAMPLES.style_note || '')}</p></div></div>
 </div>
 ${ctaBanner()}`;
@@ -400,25 +400,8 @@ ${ctaBanner()}`;
 function packagesMain() {
   return pageHero(PACKAGES.kicker || 'Packages', PACKAGES.title || 'Simple monthly plans', PACKAGES.subtitle || '') + `
 <div class="wrap">
-  <!-- Full How It Works detail lives here -->
-  <section id="how-it-works" style="padding-top:20px;padding-bottom:12px">
-    <div class="section-head">
-      <div class="kicker">${esc(how.kicker || 'The Process')}</div>
-      <h2>${esc(how.title || '')}</h2>
-      <p class="section-sub">${esc(how.subtitle || '')}</p>
-    </div>
-    <div class="steps-grid">${arr(how.steps).map(s => `<div class="step-card"><div class="step-badge">${esc(s.badge)}</div><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p></div>`).join('\n')}
-    </div>
-  </section>
-
-  <!-- Asset Matrix: exactly what every episode includes -->
-  <div class="engine-showcase" id="deliverables">
-    <div class="engine-title"><h3>${esc(matrix.title || '')}</h3><span>${esc(matrix.note || '')}</span></div>
-    <div class="asset-matrix">${arr(matrix.items).map(m => `<div class="asset-item"><div class="asset-icon">${esc(m.num)}</div><div><b>${esc(m.name)}</b><small>${esc(m.text)}</small></div></div>`).join('\n')}
-    </div>
-  </div>
-
-  <div class="pkg-grid" style="margin-top:56px">${arr(PACKAGES.plans).map(p => {
+  <!-- PACKAGES / PRICING: right up top -->
+  <div class="pkg-grid" style="margin-top:8px">${arr(PACKAGES.plans).map(p => {
     const pill = p.pill ? `<div class="pkg-pill ${p.pill_class || ''}">${esc(p.pill)}</div>` : '';
     return `<div class="pkg-card ${p.pill_class === 'featured' ? 'featured' : (p.pill_class === 'gold' ? 'founder' : '')}">${pill}
       <h3>${esc(p.name)}</h3><div class="pkg-desc">${esc(p.description)}</div>
@@ -435,8 +418,24 @@ function packagesMain() {
   </div>
   <p style="text-align:center;font-size:14px;color:var(--text-muted);max-width:620px;margin:28px auto 0;line-height:1.6">${esc(PACKAGES.style_note || '')}</p>
 
-  <!-- FAQ -->
-  <section id="faq" style="padding:72px 0 12px;margin-top:40px;border-top:1px solid var(--border-light)">
+  <!-- How It Works + Asset Matrix + FAQ below the pricing -->
+  <section id="how-it-works" style="padding:64px 0 8px;margin-top:48px;border-top:1px solid var(--border-light)">
+    <div class="section-head">
+      <div class="kicker">${esc(how.kicker || 'The Process')}</div>
+      <h2>${esc(how.title || '')}</h2>
+      <p class="section-sub">${esc(how.subtitle || '')}</p>
+    </div>
+    <div class="steps-grid">${arr(how.steps).map(s => `<div class="step-card"><div class="step-badge">${esc(s.badge)}</div><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p></div>`).join('\n')}
+    </div>
+  </section>
+
+  <div class="engine-showcase" id="deliverables" style="margin-top:40px">
+    <div class="engine-title"><h3>${esc(matrix.title || '')}</h3><span>${esc(matrix.note || '')}</span></div>
+    <div class="asset-matrix">${arr(matrix.items).map(m => `<div class="asset-item"><div class="asset-icon">${esc(m.num)}</div><div><b>${esc(m.name)}</b><small>${esc(m.text)}</small></div></div>`).join('\n')}
+    </div>
+  </div>
+
+  <section id="faq" style="padding:64px 0 12px;margin-top:40px;border-top:1px solid var(--border-light)">
     <div class="section-head">
       <div class="kicker">${esc(faq.kicker || 'Questions')}</div>
       <h2>${esc(faq.title || '')}</h2>
@@ -485,22 +484,33 @@ ${ctaBanner()}`;
 function aboutMain() {
   return pageHero(about.kicker || 'About the Producer', about.title || 'The person behind the edits', '') + `
 <div class="wrap">
-  <div class="about-box">
-    <div class="about-grid">
-      <div class="about-portrait">
-        <img src="${esc(aport.image || 'images/producer-portrait.png')}" alt="John Lloyd Sarez, founder of PlayPress Studio" loading="lazy" width="400" height="500">
-        <div class="badge-name">${esc(aport.name || 'John Lloyd Sarez')}<small>${esc(aport.role || 'Founder & Producer')}</small></div>
-      </div>
-      <div class="about-text">
-        <div class="kicker">${esc(about.kicker || 'About the Producer')}</div>
-        <h2>${esc(about.title || '')}</h2>
-        <div id="bio">${strList(about.bio).map(p => `<p>${inlineMD(p)}</p>`).join('\n          ')}</div>
-        <div class="about-fun" id="fun-note">${inlineMD(afun.fun_note || '')}</div>
+  <!-- About: single, clean section -->
+  <section id="about" style="padding-top:12px;padding-bottom:16px">
+    <div class="about-box">
+      <div class="about-grid">
+        <div class="about-portrait">
+          <img src="${esc(asset(aport.image || 'images/producer-portrait.png'))}" alt="John Lloyd Sarez, founder of PlayPress Studio" loading="lazy" width="400" height="500">
+          <div class="badge-name">${esc(aport.name || 'John Lloyd Sarez')}<small>${esc(aport.role || 'Founder & Producer')}</small></div>
+        </div>
+        <div class="about-text">
+          <div class="kicker">${esc(about.kicker || 'About the Producer')}</div>
+          <h2>${esc(about.title || '')}</h2>
+          <div id="bio">${strList(about.bio).map(p => `<p>${inlineMD(p)}</p>`).join('\n          ')}</div>
+          <div class="about-fun" id="fun-note">${inlineMD(afun.fun_note || '')}</div>
+        </div>
       </div>
     </div>
-    <div class="creds-row" id="credentials">${arr(acreds.credentials).map(c => `<div class="cred-card${c.gold ? ' gold' : ''}"><div class="cred-card-head"><strong>${esc(c.title)}</strong><span class="cred-tag">${esc(c.tag)}</span></div><span>${esc(c.text)}</span></div>`).join('')}
+  </section>
+
+  <!-- Credentials: own section, own heading, own card grid -->
+  <section id="credentials" style="padding:8px 0 0">
+    <div class="section-head">
+      <div class="kicker">Credentials</div>
+      <h2>What's behind the craft</h2>
     </div>
-  </div>
+    <div class="creds-row">${arr(acreds.credentials).map(c => `<div class="cred-card${c.gold ? ' gold' : ''}"><div class="cred-card-head"><strong>${esc(c.title)}</strong><span class="cred-tag">${esc(c.tag)}</span></div><span>${esc(c.text)}</span></div>`).join('')}
+    </div>
+  </section>
 </div>
 ${ctaBanner()}`;
 }
