@@ -1,4 +1,4 @@
-# PlayPress Studio — Samples / Portfolio content
+# PlayPress Studio - Samples / Portfolio content
 
 kicker: "Work Samples"
 title: "Real production output, before & after"
@@ -57,3 +57,30 @@ featured:
   enabled: false
   video: ""
   caption: ""
+
+# Written / repurposed assets
+show_notes:
+  label: "Show Notes & Timestamps"
+  headline: "SEO-ready show notes that publish as-is"
+  text: "Every episode gets timestamped chapters, a search-friendly intro, sources and links, and metadata keywords. Written to rank on Google and Spotify without extra work from you."
+  sample:
+    episode: "Episode 42 - Why Consistency Beats Volume on a Podcast"
+    summary: "In this episode we cuts through the 'post 5x a week' advice and look at what actually moves a show forward: a quality bar you can hit every single week, and what to do when life gets in the way."
+    chapters:
+      - { time: "00:00", title: "Why we're talking about consistency" }
+      - { time: "02:14", title: "The volume myth and how it hurts new shows" }
+      - { time: "07:48", title: "Setting a quality bar you can actually repeat" }
+      - { time: "14:32", title: "What to ship when a week goes sideways" }
+    keywords: "podcast consistency, podcast schedule, podcast growth, podcast quality"
+  note: "This is a representative sample. Real notes are written per episode from your recording."
+
+email:
+  label: "Email & Newsletter"
+  headline: "Launch emails your audience actually opens"
+  text: "A 100-word newsletter lift straight into your tool of choice, plus a subject line and preview text. Written to repurpose your episode into a reason to hit reply."
+  sample:
+    subject: "The edit that saved this week's episode"
+    preview: "One small change that made the whole thing land."
+    headline: "This week: the episode almost didn't make it"
+    body: "We recorded twice this week, and the second take was the one. In this episode I'm sharing the exact edit that saved it - the pause we kept, the tangent we cut in post, and why it changed the whole feel. If you've ever finished a recording and wondered if it was good enough, this one's for you."
+  note: "Drafted in 100–150 words for Mailchimp, ConvertKit, or any ESP you already use."

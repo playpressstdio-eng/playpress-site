@@ -76,3 +76,26 @@ Then re-upload to GitHub (or edit in the CMS for the SEO fields) and rebuild.
 ### 4. Verify
 Open `https://yourdomain.com/` and `https://yourdomain.com/admin/`.
 The `.pages.dev` URL keeps working as a mirror, so nothing breaks in the switch.
+
+## Multi-page structure (2026)
+
+The site is now a real multi-page site (not one scroll). All pages share the same
+shell (nav, footer, palette, on-page JS) and are styled from `styles.css`.
+
+| URL | Page |
+| --- | --- |
+| `/` | Home (hero, how it works, asset matrix, explore, FAQ, CTA) |
+| `/samples/` | Before & After, reels, graphics, show notes, email mockups |
+| `/packages/` | Pricing plans |
+| `/testimonials/` | Richer testimonial presentation |
+| `/about/` | Bio, credentials, fun note |
+| `/blog/` | Blog index (featured + card grid) |
+| `/blog/<slug>/` | Individual post |
+
+`build.js` emits every page from a shared `shell()` function, so the header, footer,
+and navigation stay consistent across the whole site. Nav links point to real URLs
+(e.g. `/samples/`, `/about/`) rather than in-page anchors.
+
+New editable content: Samples now include Show Notes and Email/Newsletter mockup
+sections; Testimonials support a service tag, star rating, result line, and a
+`featured` flag (the first featured one renders as a large highlighted card).

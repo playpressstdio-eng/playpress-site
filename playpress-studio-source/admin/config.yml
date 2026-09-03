@@ -31,8 +31,16 @@ collections:
             name: "links"
             widget: "list"
             fields:
+              - { label: "ID (for active highlight: home / samples / packages / testimonials / blog / about)", name: "id", widget: "string" }
               - { label: "Label", name: "label", widget: "string" }
               - { label: "Link", name: "href", widget: "string" }
+              - label: "Dropdown items (optional)"
+                name: "children"
+                widget: "list"
+                required: false
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Link", name: "href", widget: "string" }
           - { label: "Book Call button text", name: "cta_text", widget: "string" }
           - { label: "Book Call link", name: "cta_link", widget: "string" }
       - name: "hero"
@@ -158,6 +166,43 @@ collections:
                   - { label: "Caption", name: "caption", widget: "text" }
                   - { label: "Alt text (SEO)", name: "alt", widget: "string" }
                   - { label: "Link (optional)", name: "link", widget: "string", required: false }
+          - label: "Show notes sample"
+            name: "show_notes"
+            widget: "object"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+              - label: "Sample note (mockup)"
+                name: "sample"
+                widget: "object"
+                fields:
+                  - { label: "Episode title", name: "episode", widget: "string" }
+                  - { label: "Summary", name: "summary", widget: "text" }
+                  - label: "Chapters"
+                    name: "chapters"
+                    widget: "list"
+                    fields:
+                      - { label: "Time", name: "time", widget: "string" }
+                      - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Keywords", name: "keywords", widget: "text" }
+              - { label: "Footnote", name: "note", widget: "text" }
+          - label: "Email / newsletter sample"
+            name: "email"
+            widget: "object"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+              - label: "Sample email (mockup)"
+                name: "sample"
+                widget: "object"
+                fields:
+                  - { label: "Subject line", name: "subject", widget: "string" }
+                  - { label: "Preview text", name: "preview", widget: "string" }
+                  - { label: "Email headline", name: "headline", widget: "string" }
+                  - { label: "Email body", name: "body", widget: "text" }
+              - { label: "Footnote", name: "note", widget: "text" }
           - label: "Featured sample (optional)"
             name: "featured"
             widget: "object"
@@ -215,6 +260,10 @@ collections:
       - { label: "Client name", name: "name", widget: "string" }
       - { label: "Role / title", name: "role", widget: "string", required: false }
       - { label: "Quote", name: "quote", widget: "text" }
+      - { label: "Service used", name: "service", widget: "select", options: ["Full Production", "Core Production", "Growth & Social", "Reels only", "Show Notes & Graphics", "Other"], required: false }
+      - { label: "Star rating (1-5)", name: "rating", widget: "number", value_type: "int", min: 1, max: 5, default: 5, required: false }
+      - { label: "Result line (a specific outcome, e.g. 'Ship a month of content from one weekly recording')", name: "result", widget: "string", required: false }
+      - { label: "Featured (first one shown large)", name: "featured", widget: "boolean", default: false, required: false }
       - { label: "Link (optional)", name: "link", widget: "string", required: false }
 
   # ===== BLOG =====
