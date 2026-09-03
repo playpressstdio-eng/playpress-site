@@ -1,0 +1,59 @@
+# PlayPress Studio — Samples / Portfolio content
+
+kicker: "Work Samples"
+title: "Real production output, before & after"
+subtitle: "A quick look at the mastering, hook-selection, and visual assets I produce for every episode. All editing handled via Adobe Premiere."
+
+# Before / After videos
+compare:
+  headline: "Full-Episode Dialogue Cleanup"
+  label: "Audio & Video Mastering"
+  before_label: "BEFORE: RAW"
+  before_video: "https://www.youtube.com/embed/x-m5vAnLH80"
+  before_caption: "**Raw video** directly recorded from a camera, audio from the camera mic. No software filter pass, no dedicated recording microphone. Everything is as raw as it can be."
+  after_label: "AFTER: EDITED"
+  after_video: "https://www.youtube.com/embed/Iiv3y7XPmug"
+  after_caption: "**Color and light correction** applied as a full filter pass. Filler words removed, and pacing tightened for seamless editing."
+
+# Vertical reels
+reels:
+  label: "Short-Form Repurposing"
+  headline: "Hook-Driven Vertical Reels"
+  text: "Transformed directly from the raw footage. Paced for retention on YouTube Shorts, Instagram Reels, and TikTok."
+  bullets:
+    - "Dynamic captions added for silent viewing"
+    - "Auto face-framing to track subject movement"
+    - "Cut directly from the edited landscape version"
+  video: "https://www.youtube.com/embed/MtPTlAmz6xM"
+
+# B-roll / brand note
+broll_note: "to match your show's visual identity. The examples above show the core edit only — without those extras layered in."
+
+# Optional styling note
+style_label: "Important — the look isn't locked to these samples"
+style_note: "The mastering, hook-selection, and editing technique every episode gets regardless of package. The visual look is scoped with you during onboarding."
+
+# Quote & title graphics
+graphics:
+  label: "Quote & Title Graphics"
+  headline: "Branded episode graphics, ready to post"
+  note: "One style sample, not a fixed template — layout, colors, and fonts are matched to your brand for every client."
+  items:
+    - image: "samples/sample-title-graphic.png"
+      caption: "**Title graphic** — hooks the scroll before the episode even starts."
+      alt: "Podcast episode title graphic"
+      link: ""
+    - image: "samples/sample-quote-graphic-no-image.png"
+      caption: "**Quote graphic** — pulled straight from your best on-air moments."
+      alt: "Podcast quote graphic without guest photo"
+      link: ""
+    - image: "samples/sample-quote-graphic-with-image.png"
+      caption: "**Quote graphic (with guest photo)** — built for guest-driven episodes."
+      alt: "Podcast quote graphic with guest photo"
+      link: ""
+
+# Optional featured sample (toggle + link). Leave empty if not used yet.
+featured:
+  enabled: false
+  video: ""
+  caption: ""

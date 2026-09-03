@@ -1,0 +1,63 @@
+# PlayPress Studio — Packages / Pricing content
+
+kicker: "Packages"
+title: "Simple monthly plans, no agency bloat"
+subtitle: "Transparent podcast production pricing with guaranteed 48–72h turnarounds and direct 1-on-1 access."
+
+plans:
+  - pill: "Founding Rate • 3 Slots"
+    pill_class: "gold"
+    name: "Founding Core"
+    description: "Introductory 3-month rate for early partners in exchange for a testimonial and case study."
+    price: "$459"
+    price_unit: "/ month"
+    badge: "Locked in for first 3 months ($689/mo regular after)"
+    features:
+      - "Full audio + video edit of main episode"
+      - "SEO-structured show notes & timestamps"
+      - "1 custom title & thumbnail graphic"
+      - "Distribution to YouTube, Spotify & Apple"
+      - "Up to 4 episodes per month (48–72h turnaround)"
+      - "2 rounds of revisions per episode"
+    cta: "Claim Founding Core"
+    cta_link: "https://calendly.com/playpress-stdio/15min"
+
+  - pill: "Founding Engine • 3 Slots"
+    pill_class: "featured"
+    name: "Founding Growth & Social"
+    description: "Complete podcast production and multi-channel social management at introductory beta pricing."
+    price: "$919"
+    price_unit: "/ month"
+    badge: "Locked in for first 3 months ($1,379/mo regular after)"
+    features:
+      - "Everything in Core Production"
+      - "3–5 vertical short-form video reels (captioned & styled)"
+      - "3 branded quote graphics per episode"
+      - "100-word email newsletter promo draft"
+      - "Social media management: scheduled rollout across LinkedIn, IG, and Shorts"
+      - "Direct 1-on-1 communication via Slack or email"
+    cta: "Claim Founding Growth"
+    cta_link: "https://calendly.com/playpress-stdio/15min"
+
+  - pill: ""
+    pill_class: ""
+    name: "Growth & Social"
+    description: "Standard plan for ongoing partners seeking the complete podcast-to-lead engine."
+    price: "$1,379"
+    price_unit: "/ month"
+    badge: "Full production + weekly social management"
+    features:
+      - "Full audio + video edit of main episode"
+      - "3–5 vertical short-form video reels"
+      - "3 branded quote graphics per episode"
+      - "Show notes, timestamps, & email newsletter draft"
+      - "Scheduled weekly rollout across your channels"
+      - "Direct producer Slack / email access"
+    cta: "Select Standard Plan"
+    cta_link: "https://calendly.com/playpress-stdio/15min"
+
+deposit_note:
+  label: "Booking Requirement — not a discount or promo"
+  text: "A 50% deposit is required at signing to reserve your production slot (non-refundable, applies to every plan). The remaining 50% is due once your first month's package is delivered — full price applies every month after that."
+
+style_note: "Every plan includes the same production technique and deliverables above. Want a different visual style for your graphics or reels — on-brand fonts, colors, or layout? That's a quick conversation during onboarding, not a separate tier."

@@ -1,36 +1,205 @@
-# Decap CMS configuration — content editing for PlayPress Studio
-# Requires: your Netlify site connected to a Git repo, with Identity + Git Gateway enabled.
+# PlayPress Studio — Decap CMS config
+# Editing is open to any authenticated Identity user.
 
 backend:
   name: git-gateway
   branch: main
 
-# Where the CMS loads from (your deployed site domain)
 site_url: https://playpress-studio.netlify.app
 logo_url: /logo-mark.png
 
-# Editing is open to any authenticated Identity user. If you later want to
-# restrict access, wrap the collections in `editor: { allowed_roles: [...] }`.
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 collections:
-  # ---------- BLOG POSTS ----------
-  - name: "blog"
-    label: "Blog Posts"
-    folder: "content/blog"
-    create: true
-    slug: "{{slug}}"
-    extension: "md"
-    format: "frontmatter"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Hero Image", name: "image", widget: "image", required: false }
-      - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
-      - { label: "Body", name: "body", widget: "markdown" }
+  # ===== HOME =====
+  - name: "home"
+    label: "Home"
+    editor:
+      preview: false
+    files:
+      - name: "nav"
+        label: "Nav & Header"
+        file: "content/home/nav.yml"
+        fields:
+          - { label: "Logo text", name: "logo_text", widget: "string" }
+          - label: "Nav links"
+            name: "links"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Link", name: "href", widget: "string" }
+          - { label: "Book Call button text", name: "cta_text", widget: "string" }
+          - { label: "Book Call link", name: "cta_link", widget: "string" }
+      - name: "hero"
+        label: "Hero"
+        file: "content/home/hero.yml"
+        fields:
+          - { label: "Eyebrow badge", name: "eyebrow", widget: "string" }
+          - { label: "Headline (wrap a word in ** ** to color it)", name: "headline", widget: "string" }
+          - { label: "Intro paragraph", name: "lede", widget: "text" }
+          - { label: "Primary button", name: "primary_text", widget: "string" }
+          - { label: "Primary link", name: "primary_link", widget: "string" }
+          - { label: "Secondary button", name: "secondary_text", widget: "string" }
+          - { label: "Secondary link", name: "secondary_link", widget: "string" }
+      - name: "how"
+        label: "How It Works"
+        file: "content/home/how.yml"
+        fields:
+          - { label: "Section kicker", name: "kicker", widget: "string" }
+          - { label: "Headline", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "text" }
+          - label: "Steps"
+            name: "steps"
+            widget: "list"
+            fields:
+              - { label: "Badge (e.g. Step 01)", name: "badge", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "text", widget: "text" }
+      - name: "matrix"
+        label: "Asset Matrix"
+        file: "content/home/matrix.yml"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Note", name: "note", widget: "string" }
+          - label: "Asset items"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Number", name: "num", widget: "string" }
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+      - name: "faq"
+        label: "FAQ"
+        file: "content/home/faq.yml"
+        fields:
+          - { label: "Kicker", name: "kicker", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+          - label: "Questions"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Question", name: "q", widget: "string" }
+              - { label: "Answer", name: "a", widget: "text" }
+      - name: "cta"
+        label: "Call To Action"
+        file: "content/home/cta.yml"
+        fields:
+          - { label: "Heading", name: "title", widget: "string" }
+          - { label: "Text", name: "text", widget: "text" }
+          - label: "Buttons"
+            name: "buttons"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Link", name: "link", widget: "string" }
+      - name: "footer"
+        label: "Footer"
+        file: "content/home/footer.yml"
+        fields:
+          - { label: "Copyright", name: "copyright", widget: "string" }
 
-  # ---------- TESTIMONIALS ----------
+  # ===== SAMPLES =====
+  - name: "samples"
+    label: "Samples"
+    editor:
+      preview: false
+    files:
+      - name: "samples"
+        label: "Portfolio / Samples"
+        file: "content/samples.yml"
+        fields:
+          - { label: "Kicker", name: "kicker", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "text" }
+          - label: "Before / After videos"
+            name: "compare"
+            widget: "object"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Before label", name: "before_label", widget: "string" }
+              - { label: "Before video (YouTube embed, e.g. https://www.youtube.com/embed/ID)", name: "before_video", widget: "string" }
+              - { label: "Before caption", name: "before_caption", widget: "text" }
+              - { label: "After label", name: "after_label", widget: "string" }
+              - { label: "After video (YouTube embed URL)", name: "after_video", widget: "string" }
+              - { label: "After caption", name: "after_caption", widget: "text" }
+          - label: "Vertical reels"
+            name: "reels"
+            widget: "object"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+              - label: "Bullets"
+                name: "bullets"
+                widget: "list"
+                field: { label: "Bullet", widget: "string" }
+              - { label: "Vertical video (YouTube embed URL)", name: "video", widget: "string" }
+          - { label: "B-roll note", name: "broll_note", widget: "text" }
+          - { label: "Style note label", name: "style_label", widget: "string" }
+          - { label: "Style note", name: "style_note", widget: "text" }
+          - label: "Quote & Title graphics"
+            name: "graphics"
+            widget: "object"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Note", name: "note", widget: "text" }
+              - label: "Sample graphics"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Image", name: "image", widget: "image" }
+                  - { label: "Caption", name: "caption", widget: "text" }
+                  - { label: "Alt text (SEO)", name: "alt", widget: "string" }
+                  - { label: "Link (optional)", name: "link", widget: "string", required: false }
+          - label: "Featured sample (optional)"
+            name: "featured"
+            widget: "object"
+            fields:
+              - { label: "Enable featured", name: "enabled", widget: "boolean", default: false }
+              - { label: "Featured video (YouTube embed URL)", name: "video", widget: "string", required: false }
+              - { label: "Caption", name: "caption", widget: "text", required: false }
+
+  # ===== PACKAGES =====
+  - name: "packages"
+    label: "Packages"
+    editor:
+      preview: false
+    files:
+      - name: "packages"
+        label: "Pricing / Packages"
+        file: "content/packages.yml"
+        fields:
+          - { label: "Kicker", name: "kicker", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "text" }
+          - label: "Plans"
+            name: "plans"
+            widget: "list"
+            fields:
+              - { label: "Pill text (e.g. Founding Rate • 3 Slots)", name: "pill", widget: "string", required: false }
+              - { label: "Pill style", name: "pill_class", widget: "select", options: ["", "gold", "featured"], required: false }
+              - { label: "Plan name", name: "name", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Price (e.g. $459)", name: "price", widget: "string" }
+              - { label: "Badge line", name: "badge", widget: "string" }
+              - label: "Features"
+                name: "features"
+                widget: "list"
+                field: { label: "Feature", widget: "string" }
+              - { label: "CTA text", name: "cta", widget: "string" }
+              - { label: "CTA link", name: "cta_link", widget: "string" }
+          - label: "Deposit note"
+            name: "deposit_note"
+            widget: "object"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+          - { label: "Style note", name: "style_note", widget: "text" }
+
+  # ===== TESTIMONIALS =====
   - name: "testimonials"
     label: "Testimonials"
     folder: "content/testimonials"
@@ -39,27 +208,88 @@ collections:
     extension: "md"
     format: "frontmatter"
     fields:
-      - { label: "Client Name", name: "name", widget: "string" }
-      - { label: "Role / Title", name: "role", widget: "string", required: false }
+      - { label: "Client name", name: "name", widget: "string" }
+      - { label: "Role / title", name: "role", widget: "string", required: false }
       - { label: "Quote", name: "quote", widget: "text" }
-      - { label: "Show or Link", name: "link", widget: "string", required: false }
+      - { label: "Link (optional)", name: "link", widget: "string", required: false }
 
-  # ---------- PAGES / SETTINGS ----------
-  - name: "pages"
-    label: "Site Sections"
+  # ===== BLOG =====
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish date", name: "date", widget: "datetime" }
+      - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  # ===== ABOUT =====
+  - name: "about"
+    label: "About"
+    editor:
+      preview: false
     files:
-      - name: "about"
-        label: "About Section"
-        file: "content/about.md"
+      - name: "bio"
+        label: "Bio"
+        file: "content/about/bio.yml"
         fields:
-          - { label: "Intro", name: "intro", widget: "text" }
-          - { label: "Bio", name: "bio", widget: "markdown" }
-          - { label: "Fun Note", name: "fun", widget: "text" }
+          - { label: "Kicker", name: "kicker", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+          - label: "Bio paragraphs"
+            name: "bio"
+            widget: "list"
+            field: { label: "Paragraph (wrap a word in ** ** to bold)", widget: "text" }
+      - name: "portrait"
+        label: "Portrait & Name"
+        file: "content/about/portrait.yml"
+        fields:
+          - { label: "Portrait image", name: "image", widget: "image" }
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Role", name: "role", widget: "string" }
+      - name: "creds"
+        label: "Credential Cards"
+        file: "content/about/creds.yml"
+        fields:
+          - label: "Credential cards"
+            name: "credentials"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Tag", name: "tag", widget: "string" }
+              - { label: "Description", name: "text", widget: "text" }
+              - { label: "Gold style", name: "gold", widget: "boolean", default: false, required: false }
+      - name: "fun"
+        label: "Fun Note"
+        file: "content/about/fun.yml"
+        fields:
+          - { label: "Fun note", name: "fun_note", widget: "text" }
+
+  # ===== SITE SETTINGS =====
+  - name: "settings"
+    label: "Site Settings"
+    editor:
+      preview: false
+    files:
+      - name: "seo"
+        label: "SEO"
+        file: "content/settings/seo.yml"
+        fields:
+          - { label: "Page title (SEO)", name: "title", widget: "string" }
+          - { label: "Meta description (SEO)", name: "meta_description", widget: "text" }
+          - { label: "Site URL (canonical)", name: "canonical", widget: "string" }
+          - { label: "Social image URL", name: "og_image", widget: "string", required: false }
       - name: "contact"
-        label: "Contact & Socials"
-        file: "content/contact.md"
+        label: "Global Contact"
+        file: "content/settings/contact.yml"
         fields:
-          - { label: "Business Email", name: "email", widget: "string" }
-          - { label: "WhatsApp", name: "whatsapp", widget: "string" }
-          - { label: "LinkedIn", name: "linkedin", widget: "string" }
-          - { label: "Calendly", name: "calendly", widget: "string" }
+          - { label: "Business name", name: "name", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "WhatsApp display", name: "whatsapp", widget: "string" }
+          - { label: "WhatsApp link", name: "whatsapp_link", widget: "string" }
+          - { label: "LinkedIn URL", name: "linkedin", widget: "string" }
+          - { label: "Calendly link", name: "calendly", widget: "string" }

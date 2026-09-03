@@ -16,20 +16,21 @@
 
 <!-- Open Graph / social preview -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="<!--OGTITLE-->">
-<meta property="og:description" content="<!--OGDESC-->">
-<meta property="og:url" content="<!--SEOURL-->">
+<meta property="og:title" content="PlayPress Studio — Podcasting, Done Right!">
+<meta property="og:description" content="Done-for-you podcast editing, vertical reels, show notes, and social media scheduling by a dedicated solo producer.">
+<meta property="og:url" content="https://playpress-studio.netlify.app/">
 <meta property="og:site_name" content="PlayPress Studio">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="<!--OGTITLE-->">
-<meta name="twitter:description" content="<!--OGDESC-->">
-<meta property="og:image" content="<!--OGIMAGE-->">
+<meta name="twitter:title" content="PlayPress Studio — Podcasting, Done Right!">
+<meta name="twitter:description" content="Done-for-you podcast editing, vertical reels, show notes, and social media scheduling by a dedicated solo producer.">
+<!-- Social preview image: replace /og-image.png with your real 1200x630 image path -->
+<meta property="og:image" content="https://playpress-studio.netlify.app/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="PlayPress Studio — podcast editing, reels, show notes, and social scheduling">
-<meta name="twitter:image" content="<!--OGIMAGE-->">
+<meta name="twitter:image" content="https://playpress-studio.netlify.app/og-image.png">
 
-<!-- Google Search Console verification -->
+<!-- Google Search Console verification: replace CONTENT value with the real code Search Console gives you -->
 <meta name="google-site-verification" content="RsuA_oRkhVA7iH7YDESIRx6xAnAXmnByKJi4mA0oIdA" />
 
 <!-- Structured data -->
@@ -44,6 +45,36 @@
   "areaServed": "Worldwide",
   "priceRange": "$$",
   "sameAs": ["https://www.linkedin.com/in/john-lloyd-sarez-68624718b"]
+}
+</script>
+
+<!-- FAQ structured data (matches the visible FAQ) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What do you need from me each week?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Just your raw audio/video files, your guest's name and bio, and any links you referenced. I handle the entire pipeline after recording." }
+    },
+    {
+      "@type": "Question",
+      "name": "How fast is the turnaround?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Standard delivery is 48 to 72 hours from receiving complete raw files." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do revisions work?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Every episode includes up to two rounds of minor revisions requested within 5 business days of delivery." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a long-term contract?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Retainers are billed monthly with a simple 14-day written notice if you ever need to pause or cancel." }
+    }
+  ]
 }
 </script>
 
@@ -640,7 +671,6 @@
     padding: 40px 0; text-align: center;
     color: var(--text-light); font-size: 13px;
   }
-
 </style>
 </head>
 <body>
@@ -665,7 +695,6 @@
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <!--NAVLINKS-->
-    <a href="<!--NAVCTALINK-->" target="_blank" rel="noopener" class="btn-nav"><!--NAVCTA--></a>
   </div>
 </nav>
 
@@ -683,12 +712,12 @@
     <div class="petal gold p8"></div>
   </div>
   <div class="wrap" style="position: relative; z-index: 1;">
-    <div class="eyebrow-pill"><span></span><!--HEROEYEBROW--></div>
-    <h1><!--HEROH1--></h1>
-    <p class="lede"><!--HEROLEDE--></p>
+    <div class="eyebrow-pill"><span></span> Solo Producer Model • Capped Roster to Guarantee QA</div>
+    <h1>Turn each recorded episode into a full week of <span>audience-building content</span></h1>
+    <p class="lede">You record the conversation. I master the audio and video, cut vertical reels, design quote cards, and run your weekly social rollout end-to-end.</p>
     <div class="hero-ctas">
-      <a href="<!--HEROPRIMLINK-->" target="_blank" rel="noopener" class="btn-primary"><!--HEROPRIMARY--></a>
-      <a href="<!--HEROSECLINK-->" class="btn-secondary"><!--HEROSECONDARY--></a>
+      <a href="https://calendly.com/playpress-stdio/30min" target="_blank" rel="noopener" class="btn-primary">Book a 15-Min Discovery Call</a>
+      <a href="#retainers" class="btn-secondary">View Retainer Plans</a>
     </div>
   </div>
 </section>
@@ -697,118 +726,249 @@
 <section id="how-it-works" style="padding-top: 72px; background: var(--bg-surface-solid); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
   <div class="wrap">
     <div class="section-head">
-      <div class="kicker"><!--HOWKICKER--></div>
-      <h2><!--HOWTITLE--></h2>
-      <p class="section-sub"><!--HOWSUB--></p>
+      <div class="kicker">The Process</div>
+      <h2>Simple, predictable, zero back-and-forth</h2>
+      <p class="section-sub">A streamlined 3-step workflow designed so editing never takes you away from running your business.</p>
     </div>
     <div class="steps-grid">
-      <!--STEPS-->
+      <div class="step-card">
+        <div class="step-badge">Step 01</div>
+        <h3>1. Drop the raw file</h3>
+        <p>Upload your audio or video recording and guest info to your dedicated Drive folder. Your production work ends right there.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-badge">Step 02</div>
+        <h3>2. Production &amp; QC</h3>
+        <p>I balance and master the audio (-16 LUFS), cut out dead air, pull vertical reels, draft copy, and personally review every file before you see it.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-badge">Step 03</div>
+        <h3>3. Approved &amp; published</h3>
+        <p>Once you give the green light, I schedule the full episode to your podcast host and YouTube, then roll out your clips across social media all week.</p>
+      </div>
     </div>
 
+    <!-- 1-TO-6 ASSET SHOWCASE -->
     <div class="engine-showcase" id="deliverables">
       <div class="engine-title">
-        <h3><!--MATRIXTITLE--></h3>
-        <span><!--MATRIXNOTE--></span>
+        <h3>What I produce from every single episode</h3>
+        <span>Complete multi-platform output:</span>
       </div>
       <div class="asset-matrix">
-        <!--MATRIXITEMS-->
+        <div class="asset-item">
+          <div class="asset-icon">01</div>
+          <div>
+            <b>Master audio &amp; video</b>
+            <small>Clean, balanced, leveled episode ready for Spotify, Apple Podcasts, and YouTube.</small>
+          </div>
+        </div>
+        <div class="asset-item">
+          <div class="asset-icon">02</div>
+          <div>
+            <b>3–5 vertical short reels</b>
+            <small>Hook-driven 9:16 vertical video clips with dynamic captions for Shorts, Reels, and TikTok.</small>
+          </div>
+        </div>
+        <div class="asset-item">
+          <div class="asset-icon">03</div>
+          <div>
+            <b>SEO show notes</b>
+            <small>Timestamped highlights, key takeaways, guest bio, and formatted resource links.</small>
+          </div>
+        </div>
+        <div class="asset-item">
+          <div class="asset-icon">04</div>
+          <div>
+            <b>3 branded quote cards</b>
+            <small>Custom social graphics highlighting actionable insights and standout quotes.</small>
+          </div>
+        </div>
+        <div class="asset-item">
+          <div class="asset-icon">05</div>
+          <div>
+            <b>Email newsletter promo</b>
+            <small>A 100-word concise summary draft ready to send directly to your email list.</small>
+          </div>
+        </div>
+        <div class="asset-item">
+          <div class="asset-icon">06</div>
+          <div>
+            <b>Social media scheduling</b>
+            <small>Staggered rollout across LinkedIn and Instagram so your show stays active all week.</small>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- PORTFOLIO / PROOF SAMPLES -->
-<section id="samples" style="padding-top: 72px; background: var(--bg-section-tint); border-bottom: 1px solid var(--border-light);">
+<section id="portfolio" style="padding-top: 72px; background: var(--bg-section-tint); border-bottom: 1px solid var(--border-light);">
   <div class="wrap">
     <div class="section-head">
-      <div class="kicker"><!--SAMPLEKICKER--></div>
-      <h2><!--SAMPLETITLE--></h2>
-      <p class="section-sub"><!--SAMPLESUB--></p>
+      <div class="kicker">Work Samples</div>
+      <h2>Real production output, before &amp; after</h2>
+      <p class="section-sub">A quick look at the mastering, hook-selection, and visual assets produced for every episode. All editing handled via Adobe Premiere.</p>
     </div>
 
-    <!--FEATURED-->
-
+    <!-- Before & After Row -->
     <div style="background: var(--bg-surface-solid); border: 1px solid var(--border-light); border-radius: 20px; padding: 40px; box-shadow: var(--shadow-sm); margin-bottom: 32px;">
       <div style="text-align: center; margin-bottom: 32px;">
-        <div style="font-size: 11.5px; font-weight: 800; text-transform: uppercase; color: var(--accent-dark); letter-spacing: 0.06em; margin-bottom: 8px;"><!--CMPLABEL--></div>
-        <h3 style="font-size: 22px; font-weight: 800; color: var(--text-main);"><!--CMPHEAD--></h3>
+        <div style="font-size: 11.5px; font-weight: 800; text-transform: uppercase; color: var(--accent-dark); letter-spacing: 0.06em; margin-bottom: 8px;">Audio &amp; Video Mastering</div>
+        <h3 style="font-size: 22px; font-weight: 800; color: var(--text-main);">Full-Episode Dialogue Cleanup</h3>
       </div>
+      
       <div class="portfolio-grid">
+        <!-- Raw -->
         <div>
-          <div style="display: inline-block; background: #F3F0F2; color: var(--text-muted); font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 6px; margin-bottom: 12px;"><!--CMPBEFORELABEL--></div>
-          <iframe class="portfolio-media" height="280" src="<!--CMPBEFOREVID-->" title="Raw Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <p style="font-size: 14px; color: var(--text-body); line-height: 1.5;"><!--CMPBEFORECAP--></p>
+          <div style="display: inline-block; background: #F3F0F2; color: var(--text-muted); font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 6px; margin-bottom: 12px;">BEFORE: RAW</div>
+          <iframe class="portfolio-media" height="280" src="https://www.youtube.com/embed/x-m5vAnLH80" title="Raw Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <p style="font-size: 14px; color: var(--text-body); line-height: 1.5;"><strong>Raw Video file directly recorded from a camera</strong> with audio captured from the camera microphone. No software filter pass. No dedicated microphone for recording. Everything is as raw as it can be.</p>
         </div>
+        <!-- Edited -->
         <div>
-          <div style="display: inline-block; background: var(--accent-soft); color: var(--accent-dark); font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 6px; margin-bottom: 12px;"><!--CMPAFTERLABEL--></div>
-          <iframe class="portfolio-media" height="280" src="<!--CMPAFTERVID-->" title="Edited Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <p style="font-size: 14px; color: var(--text-body); line-height: 1.5;"><!--CMPAFTERCAP--></p>
+          <div style="display: inline-block; background: var(--accent-soft); color: var(--accent-dark); font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 6px; margin-bottom: 12px;">AFTER: EDITED</div>
+          <iframe class="portfolio-media" height="280" src="https://www.youtube.com/embed/Iiv3y7XPmug" title="Edited Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <p style="font-size: 14px; color: var(--text-body); line-height: 1.5;"><strong>Color and light correction</strong> applied as a full filter pass. Filler words removed, and pacing made tighter than the raw file for seamless editing that delivers the idea immediately.</p>
         </div>
       </div>
     </div>
 
+    <!-- Vertical Video Row -->
     <div class="reel-grid" style="background: var(--bg-surface-solid); border: 1px solid var(--border-light); border-radius: 20px; padding: 40px; box-shadow: var(--shadow-sm);">
       <div>
-        <div style="font-size: 11.5px; font-weight: 800; text-transform: uppercase; color: var(--gold); letter-spacing: 0.06em; margin-bottom: 8px;"><!--REELSLABEL--></div>
-        <h3 style="font-size: 24px; font-weight: 800; color: var(--text-main); margin-bottom: 16px;"><!--REELSHEAD--></h3>
-        <p style="font-size: 15px; color: var(--text-body); line-height: 1.6; margin-bottom: 16px;"><!--REELSTEXT--></p>
+        <div style="font-size: 11.5px; font-weight: 800; text-transform: uppercase; color: var(--gold); letter-spacing: 0.06em; margin-bottom: 8px;">Short-Form Repurposing</div>
+        <h3 style="font-size: 24px; font-weight: 800; color: var(--text-main); margin-bottom: 16px;">Hook-Driven Vertical Reels</h3>
+        <p style="font-size: 15px; color: var(--text-body); line-height: 1.6; margin-bottom: 16px;">Transformed directly from the raw footage. Paced for retention on YouTube Shorts, Instagram Reels, and TikTok.</p>
         <ul style="list-style: none; display: flex; flex-direction: column; gap: 10px;">
-          <!--REELSBULLETS-->
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: var(--text-muted);"><span style="color: var(--accent); font-weight: 800;">✓</span> Dynamic captions added for silent viewing</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: var(--text-muted);"><span style="color: var(--accent); font-weight: 800;">✓</span> Auto face-framing to track subject movement</li>
+          <li style="display: flex; gap: 10px; font-size: 14.5px; color: var(--text-muted);"><span style="color: var(--accent); font-weight: 800;">✓</span> Cut directly from the edited landscape version above</li>
         </ul>
       </div>
       <div style="text-align: center;">
-        <iframe width="100%" style="max-width: 280px; height: 480px; border-radius: 16px; border: 4px solid var(--bg-card-soft); box-shadow: var(--shadow-md);" src="<!--REELSVID-->" title="YouTube Short" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="100%" style="max-width: 280px; height: 480px; border-radius: 16px; border: 4px solid var(--bg-card-soft); box-shadow: var(--shadow-md);" src="https://www.youtube.com/embed/MtPTlAmz6xM" title="YouTube Short" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div>
 
+    <!-- B-Roll / Brand Styling Note -->
     <div class="distinction-note dn-top">
       <div class="dn-icon" aria-hidden="true">🎬</div>
       <div class="dn-body">
         <span class="dn-label">Optional Extras</span>
-        <p><strong>B-roll and brand-specific styling can be added</strong> <!--BROLLNOTE--></p>
+        <p><strong>B-roll and brand-specific styling can be added</strong> to match your show's visual identity. The examples above show the core edit only — without those extras layered in.</p>
       </div>
     </div>
 
+    <!-- Quote & Title Graphics Row -->
     <div style="background: var(--bg-surface-solid); border: 1px solid var(--border-light); border-radius: 20px; padding: 40px; box-shadow: var(--shadow-sm); margin-bottom: 32px;">
       <div style="text-align: center; margin-bottom: 32px;">
-        <div style="font-size: 11.5px; font-weight: 800; text-transform: uppercase; color: var(--gold); letter-spacing: 0.06em; margin-bottom: 8px;"><!--GRAPHLABEL--></div>
-        <h3 style="font-size: 22px; font-weight: 800; color: var(--text-main);"><!--GRAPHHEAD--></h3>
+        <div style="font-size: 11.5px; font-weight: 800; text-transform: uppercase; color: var(--gold); letter-spacing: 0.06em; margin-bottom: 8px;">Quote &amp; Title Graphics</div>
+        <h3 style="font-size: 22px; font-weight: 800; color: var(--text-main);">Branded episode graphics, ready to post</h3>
       </div>
       <div class="samples-grid-3">
-        <!--GRAPHS-->
+        <div>
+          <img src="samples/sample-title-graphic.png" alt="Sample title graphic" style="width: 100%; border-radius: 12px; border: 1px solid var(--border-light); box-shadow: var(--shadow-sm); margin-bottom: 12px;">
+          <p style="font-size: 13.5px; color: var(--text-body); line-height: 1.5; text-align: center;"><strong>Title graphic</strong> — hooks the scroll before the episode even starts.</p>
+        </div>
+        <div>
+          <img src="samples/sample-quote-graphic-no-image.png" alt="Sample quote graphic without guest photo" style="width: 100%; border-radius: 12px; border: 1px solid var(--border-light); box-shadow: var(--shadow-sm); margin-bottom: 12px;">
+          <p style="font-size: 13.5px; color: var(--text-body); line-height: 1.5; text-align: center;"><strong>Quote graphic</strong> — pulled straight from your best on-air moments.</p>
+        </div>
+        <div>
+          <img src="samples/sample-quote-graphic-with-image.png" alt="Sample quote graphic with guest photo" style="width: 100%; border-radius: 12px; border: 1px solid var(--border-light); box-shadow: var(--shadow-sm); margin-bottom: 12px;">
+          <p style="font-size: 13.5px; color: var(--text-body); line-height: 1.5; text-align: center;"><strong>Quote graphic (with guest photo)</strong> — built for guest-driven episodes.</p>
+        </div>
       </div>
-      <p style="font-size: 13px; color: var(--text-muted); text-align: center; margin-top: 20px;"><!--GRAPHNOTE--></p>
+      <p style="font-size: 13px; color: var(--text-muted); text-align: center; margin-top: 20px;">One style sample, not a fixed template — layout, colors, and fonts are matched to your brand for every client.</p>
     </div>
 
+    <!-- Custom Style Note -->
     <div class="distinction-note gold">
       <div class="dn-icon" aria-hidden="true">🎨</div>
       <div class="dn-body">
-        <span class="dn-label"><!--STYLELABEL--></span>
-        <p><strong>What's shown above is our standard process</strong> <!--STYLENOTE--></p>
+        <span class="dn-label">Important — the style isn't locked to these samples</span>
+        <p><strong>What's shown above is our standard process</strong> — the mastering, hook-selection, and editing technique every episode gets, regardless of package. But the visual look (colors, graphic style, caption design) is separate from that, and isn't locked to what you see here. If your brand calls for a different style, we scope that with you during onboarding.</p>
       </div>
     </div>
+
   </div>
 </section>
 
-<!-- PACKAGES -->
-<section id="packages" style="background: var(--bg-surface-solid); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+<!-- RETAINERS -->
+<section id="retainers" style="background: var(--bg-surface-solid); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
   <div class="wrap">
     <div class="section-head">
-      <div class="kicker"><!--PKGKICKER--></div>
-      <h2><!--PKGTITLE--></h2>
-      <p class="section-sub"><!--PKGSUB--></p>
+      <div class="kicker">Retainer Plans</div>
+      <h2>Simple monthly plans, no agency bloat</h2>
+      <p class="section-sub">Transparent retainers with guaranteed 48–72h turnarounds and direct 1-on-1 access.</p>
     </div>
     <div class="pkg-grid">
-      <!--PLANS-->
+      
+      <!-- Founding Core Tier -->
+      <div class="pkg-card founder">
+        <div class="pkg-pill gold">Founding Rate • 3 Slots</div>
+        <h3>Founding Core</h3>
+        <div class="pkg-desc">Introductory 3-month rate for early partners in exchange for a testimonial and case study.</div>
+        <div class="pkg-price">$459<span> / month</span></div>
+        <div class="founding-badge-inline">✦ Locked in for first 3 months ($689/mo regular after)</div>
+        <ul>
+          <li><span class="check">✓</span><span class="text">Full audio + video edit of main episode</span></li>
+          <li><span class="check">✓</span><span class="text">SEO-structured show notes &amp; timestamps</span></li>
+          <li><span class="check">✓</span><span class="text">1 custom title &amp; thumbnail graphic</span></li>
+          <li><span class="check">✓</span><span class="text">Distribution to YouTube, Spotify &amp; Apple</span></li>
+          <li><span class="check">✓</span><span class="text">Up to 4 episodes per month (48–72h turnaround)</span></li>
+          <li><span class="check">✓</span><span class="text">2 rounds of revisions per episode</span></li>
+        </ul>
+        <a href="https://calendly.com/playpress-stdio/30min" target="_blank" rel="noopener" class="btn-pkg">Claim Founding Core</a>
+      </div>
+
+      <!-- Founding Growth & Social Engine Tier -->
+      <div class="pkg-card featured">
+        <div class="pkg-pill">Founding Engine • 3 Slots</div>
+        <h3>Founding Growth &amp; Social</h3>
+        <div class="pkg-desc">Complete podcast production and multi-channel social management at introductory beta pricing.</div>
+        <div class="pkg-price">$919<span> / month</span></div>
+        <div class="founding-badge-inline" style="color: var(--accent-dark);">✦ Locked in for first 3 months ($1,379/mo regular after)</div>
+        <ul>
+          <li><span class="check">✓</span><span class="text">Everything included in <strong>Core Production</strong></span></li>
+          <li><span class="check">✓</span><span class="text">3–5 vertical short-form video reels (captioned &amp; styled)</span></li>
+          <li><span class="check">✓</span><span class="text">3 branded quote graphics per episode</span></li>
+          <li><span class="check">✓</span><span class="text">100-word email newsletter promo draft</span></li>
+          <li><span class="check">✓</span><span class="text"><strong>Social media management:</strong> scheduled rollout across LinkedIn, IG, and Shorts</span></li>
+          <li><span class="check">✓</span><span class="text">Direct 1-on-1 communication via Slack or email</span></li>
+        </ul>
+        <a href="https://calendly.com/playpress-stdio/30min" target="_blank" rel="noopener" class="btn-pkg">Claim Founding Growth</a>
+      </div>
+
+      <!-- Standard Growth & Social Engine -->
+      <div class="pkg-card">
+        <h3>Growth &amp; Social (Standard)</h3>
+        <div class="pkg-desc">Standard retainer for ongoing partners seeking the complete podcast-to-lead engine.</div>
+        <div class="pkg-price">$1,379<span> / month</span></div>
+        <div class="founding-badge-inline" style="color: var(--text-muted);">✦ Full production + weekly social management</div>
+        <ul>
+          <li><span class="check">✓</span><span class="text">Full audio + video edit of main episode</span></li>
+          <li><span class="check">✓</span><span class="text">3–5 vertical short-form video reels</span></li>
+          <li><span class="check">✓</span><span class="text">3 branded quote graphics per episode</span></li>
+          <li><span class="check">✓</span><span class="text">Show notes, timestamps, &amp; email newsletter draft</span></li>
+          <li><span class="check">✓</span><span class="text">Scheduled weekly rollout across your channels</span></li>
+          <li><span class="check">✓</span><span class="text">Direct producer Slack / email access</span></li>
+        </ul>
+        <a href="https://calendly.com/playpress-stdio/30min" target="_blank" rel="noopener" class="btn-pkg">Select Standard Plan</a>
+      </div>
+
     </div>
 
+    <!-- Booking / Deposit Requirement -->
     <div style="border: 2px solid var(--accent-dark); border-radius: 16px; padding: 22px 28px; margin-top: 32px; max-width: 700px; margin-left: auto; margin-right: auto; background: var(--bg-surface-solid);">
-      <div style="font-size: 11.5px; font-weight: 800; text-transform: uppercase; color: var(--accent-dark); letter-spacing: 0.06em; margin-bottom: 8px;"><!--DEPOSITLABEL--></div>
-      <p style="font-size: 14.5px; color: var(--text-main); line-height: 1.6; margin: 0;"><strong><!--DEPOSITTEXT--></strong></p>
+      <div style="font-size: 11.5px; font-weight: 800; text-transform: uppercase; color: var(--accent-dark); letter-spacing: 0.06em; margin-bottom: 8px;">Booking Requirement — not a discount or promo</div>
+      <p style="font-size: 14.5px; color: var(--text-main); line-height: 1.6; margin: 0;"><strong>A 50% deposit is required at signing to reserve your production slot</strong> (non-refundable, applies to every plan). The remaining 50% is due once your first month's package is delivered — full retainer applies every month after that.</p>
     </div>
 
+    <!-- Custom Style Note -->
     <p style="text-align: center; font-size: 14px; color: var(--text-muted); max-width: 620px; margin: 28px auto 0; line-height: 1.6;">
-      <!--PKGSTYLENOTE-->
+      Every plan includes the same production technique and deliverables above. Want a different visual style for your graphics or reels — on-brand fonts, colors, or layout? That's a quick conversation during onboarding, not a separate tier.
     </p>
   </div>
 </section>
@@ -818,21 +978,76 @@
   <div class="wrap">
     <div class="about-box">
       <div class="about-grid">
+
+        <!-- Producer Portrait -->
         <div class="about-portrait">
-          <img src="<!--PORTRAITSRC-->" alt="<!--PORTRAITALT-->" loading="lazy" width="400" height="500">
-          <div class="badge-name"><!--PORTRAITNAME--><small><!--PORTRAITROLE--></small></div>
+          <img src="images/producer-portrait.png" alt="John Lloyd Sarez — founder of PlayPress Studio" loading="lazy" width="400" height="500">
+          <div class="badge-name">John Lloyd Sarez<small>Founder &amp; Producer</small></div>
         </div>
+
         <div class="about-text">
-          <div class="kicker"><!--ABOUTKICKER--></div>
-          <h2><!--ABOUTTITLE--></h2>
-          <!--ABOUTBIO-->
+          <div class="kicker">About the Producer</div>
+          <h2>Agency-level output, delivered entirely solo</h2>
+          <p>Hi, I'm <strong>John Lloyd Sarez</strong> — founder and only producer of PlayPress Studio. I help founders and consultants turn every recorded episode into a full week of content, without them lifting a finger past the record button.</p>
+          <p>My path in wasn't the usual one. I graduated in Computer Engineering, and the pandemic hit before I'd ever set foot in a corporate office. My first break was writing podcast show-notes — back when that meant actually listening to every episode and writing it out by hand. One task led to the next: editing video, running socials, then leading a team of virtual assistants across a slate of client shows for over four years.</p>
+          <p>That time taught me the difference between content that's finished and content that's done right. When a show moves through many hands, an episode rarely gets one person's full, honest attention. So I built PlayPress Studio to be the opposite: one producer, your show end-to-end, and a roster I keep small on purpose.</p>
+          <p>I keep it to three clients at a time because it's the only way I can honestly promise the polish and the direct 1-on-1 access that scale simply can't.</p>
           <div class="about-fun">
-            <!--FUNNOTE-->
+            <strong>Off the clock:</strong> I read a lot of Chinese web novels — xianxia and xuanhuan, the long cultivation epics. Think Wattpad, but the authors are Chinese. And when it comes to choosing a hook or a cut, I go completely on gut feel. It hasn't steered me wrong yet.
           </div>
         </div>
+
       </div>
+
+      <!-- Credential Cards -->
       <div class="creds-row">
-        <!--CREDS-->
+        <div class="cred-card">
+          <div class="cred-card-head">
+            <strong>4+ Years Hands-On Experience</strong>
+            <span class="cred-tag">In the Trenches</span>
+          </div>
+          <span>Audio mastering, multicam video editing, and social scheduling across dozens of B2B niches.</span>
+        </div>
+
+        <div class="cred-card">
+          <div class="cred-card-head">
+            <strong>Zero Handoff Friction</strong>
+            <span class="cred-tag">1-on-1 Direct</span>
+          </div>
+          <span>I edit the episode, pull the viral hooks, draft the copy, and review the final output myself.</span>
+        </div>
+
+        <div class="cred-card">
+          <div class="cred-card-head">
+            <strong>Guaranteed Quality Pass</strong>
+            <span class="cred-tag">Capped Roster</span>
+          </div>
+          <span>Every link, timestamp, graphic, and caption is proofed before pre-delivery quality checks.</span>
+        </div>
+
+        <div class="cred-card gold">
+          <div class="cred-card-head">
+            <strong>AI-Augmented Workflow</strong>
+            <span class="cred-tag">Claude · ChatGPT · DeepSeek</span>
+          </div>
+          <span>I lean on AI to turn ideas into hooks, notes, and content angles faster — the polish is still manual.</span>
+        </div>
+
+        <div class="cred-card">
+          <div class="cred-card-head">
+            <strong>Team Leadership</strong>
+            <span class="cred-tag">Before I Went Solo</span>
+          </div>
+          <span>Years leading and delegating to a team of virtual assistants across client shows — the reason I now keep everything in one pair of hands.</span>
+        </div>
+
+        <div class="cred-card">
+          <div class="cred-card-head">
+            <strong>Engineer's Eye</strong>
+            <span class="cred-tag">BSCpE Grad</span>
+          </div>
+          <span>Computer Engineering background means systems thinking applied to your production pipeline, not just taste.</span>
+        </div>
       </div>
     </div>
   </div>
@@ -842,16 +1057,31 @@
 <section id="faq" style="padding-top: 0;">
   <div class="wrap">
     <div class="section-head">
-      <div class="kicker"><!--FAQKICKER--></div>
-      <h2><!--FAQTITLE--></h2>
+      <div class="kicker">Questions</div>
+      <h2>Frequently asked questions</h2>
     </div>
     <div class="faq-grid">
-      <!--FAQITEMS-->
+      <div class="faq-item">
+        <h4>What do you need from me each week?</h4>
+        <p>Just your raw audio/video files, your guest's name/bio, and any links you referenced. I handle the entire pipeline after recording.</p>
+      </div>
+      <div class="faq-item">
+        <h4>How fast is the turnaround?</h4>
+        <p>Standard delivery is 48 to 72 hours from receiving complete raw files.</p>
+      </div>
+      <div class="faq-item">
+        <h4>How do revisions work?</h4>
+        <p>Every episode includes up to two rounds of minor revisions requested within 5 business days of delivery.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Is there a long-term contract?</h4>
+        <p>No. Retainers are billed monthly with a simple 14-day written notice if you ever need to pause or cancel.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
+<!-- TESTIMONIALS (auto-filled by build) -->
 <section id="testimonials" style="background: var(--bg-surface-solid); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
   <div class="wrap">
     <div class="section-head">
@@ -859,7 +1089,7 @@
       <h2>What partners say</h2>
     </div>
     <div class="testimonials-grid" id="testimonials-list">
-      <!--TESTIMONIALS-->
+      <!-- Testimonial cards are injected here by the build. -->
     </div>
   </div>
 </section>
@@ -868,10 +1098,12 @@
 <section id="contact" style="padding-top: 0;">
   <div class="wrap">
     <div class="cta-banner">
-      <h2><!--CTATITLE--></h2>
-      <p><!--CTATEXT--></p>
+      <h2>Let’s talk about your show</h2>
+      <p>Book a quick 15-minute call to discuss your recording setup, production gaps, and how I can take distribution off your plate.</p>
       <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-        <!--CTABUTTONS-->
+        <a href="https://calendly.com/playpress-stdio/30min" target="_blank" rel="noopener" class="btn-primary">Schedule Discovery Call</a>
+        <a href="mailto:playpress.stdio@gmail.com" class="btn-primary" style="background: transparent; color: #FFF; border: 1px solid rgba(255,255,255,0.3);">Email Me Instead</a>
+        <a href="https://www.linkedin.com/in/john-lloyd-sarez-68624718b" target="_blank" rel="noopener" class="btn-primary" style="background: transparent; color: #FFF; border: 1px solid rgba(255,255,255,0.3);">Connect on LinkedIn</a>
       </div>
     </div>
   </div>
@@ -880,45 +1112,54 @@
 
 <footer>
   <div class="wrap">
-    <p><!--COPYRIGHT--> <br> <a href="mailto:<!--FOOTEREMAIL-->" style="text-decoration: underline; margin-top: 4px; display: inline-block;"><!--FOOTEREMAIL--></a> &nbsp;·&nbsp; <a href="<!--FOOTERWALINK-->" target="_blank" rel="noopener" style="text-decoration: underline;">WhatsApp <!--FOOTERWA--></a> &nbsp;·&nbsp; <a href="<!--FOOTERLINKEDIN-->" target="_blank" rel="noopener" style="text-decoration: underline;">LinkedIn</a></p>
+    <p>© 2026 PlayPress Studio. Podcasting, Done Right. All rights reserved. <br> <a href="mailto:playpress.stdio@gmail.com" style="text-decoration: underline; margin-top: 4px; display: inline-block;">playpress.stdio@gmail.com</a> &nbsp;·&nbsp; <a href="https://wa.me/639776533414" target="_blank" rel="noopener" style="text-decoration: underline;">WhatsApp +63 977 653 3414</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/john-lloyd-sarez-68624718b" target="_blank" rel="noopener" style="text-decoration: underline;">LinkedIn</a></p>
   </div>
 </footer>
 
 <script>
 (function () {
-  var toggle = document.getElementById("navToggle");
-  var menu = document.getElementById("mobileMenu");
+  // Mobile menu toggle
+  var toggle = document.getElementById('navToggle');
+  var menu = document.getElementById('mobileMenu');
   if (toggle && menu) {
-    toggle.addEventListener("click", function () {
-      var open = menu.classList.toggle("open");
-      toggle.classList.toggle("open", open);
-      toggle.setAttribute("aria-expanded", open ? "true" : "false");
-      toggle.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+    toggle.addEventListener('click', function () {
+      var open = menu.classList.toggle('open');
+      toggle.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
     });
-    menu.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        menu.classList.remove("open");
-        toggle.classList.remove("open");
-        toggle.setAttribute("aria-expanded", "false");
+    menu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        menu.classList.remove('open');
+        toggle.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
       });
     });
   }
-  var sparkleColors = ["#C75B64", "#D8895A", "#F3CDC3", "#FFFFFF"];
-  document.querySelectorAll(".pkg-card").forEach(function (card) {
+
+  var sparkleColors = ['#C75B64', '#D8895A', '#F3CDC3', '#FFFFFF'];
+  document.querySelectorAll('.pkg-card').forEach(function (card) {
     var interval = null;
-    card.addEventListener("mouseenter", function () { interval = setInterval(function () { spawnSparkle(card); }, 160); });
-    card.addEventListener("mouseleave", function () { clearInterval(interval); });
+    card.addEventListener('mouseenter', function () {
+      interval = setInterval(function () {
+        spawnSparkle(card);
+      }, 160);
+    });
+    card.addEventListener('mouseleave', function () {
+      clearInterval(interval);
+    });
   });
+
   function spawnSparkle(card) {
-    var s = document.createElement("div");
-    s.className = "sparkle";
+    var s = document.createElement('div');
+    s.className = 'sparkle';
     var size = 3 + Math.random() * 5;
-    s.style.width = size + "px";
-    s.style.height = size + "px";
-    s.style.left = (Math.random() * 90 + 5) + "%";
-    s.style.top = (Math.random() * 30 + 60) + "%";
+    s.style.width = size + 'px';
+    s.style.height = size + 'px';
+    s.style.left = (Math.random() * 90 + 5) + '%';
+    s.style.top = (Math.random() * 30 + 60) + '%';
     s.style.background = sparkleColors[Math.floor(Math.random() * sparkleColors.length)];
-    s.style.boxShadow = "0 0 6px " + s.style.background;
+    s.style.boxShadow = '0 0 6px ' + s.style.background;
     card.appendChild(s);
     setTimeout(function () { s.remove(); }, 900);
   }

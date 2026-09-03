@@ -1,0 +1,7 @@
+# Call To Action
+title: "Let's talk about your show"
+text: "Book a quick 15-minute call to discuss your recording setup, production gaps, and how I can take distribution off your plate."
+buttons:
+  - { label: "Schedule Discovery Call", link: "https://calendly.com/playpress-stdio/15min" }
+  - { label: "Email Me Instead", link: "mailto:playpress.stdio@gmail.com" }
+  - { label: "Connect on LinkedIn", link: "https://www.linkedin.com/in/john-lloyd-sarez-68624718b" }
