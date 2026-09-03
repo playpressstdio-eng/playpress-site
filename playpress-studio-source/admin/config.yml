@@ -9,6 +9,8 @@ backend:
 site_url: https://playpress-studio.netlify.app
 logo_url: /logo-mark.png
 
+# Editing is open to any authenticated Identity user. If you later want to
+# restrict access, wrap the collections in `editor: { allowed_roles: [...] }`.
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
