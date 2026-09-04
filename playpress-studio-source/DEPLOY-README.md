@@ -99,3 +99,45 @@ and navigation stay consistent across the whole site. Nav links point to real UR
 New editable content: Samples now include Show Notes and Email/Newsletter mockup
 sections; Testimonials support a service tag, star rating, result line, and a
 `featured` flag (the first featured one renders as a large highlighted card).
+
+## Blog post reactions — global counts (Pages Function + D1)
+
+The blog posts now show a "What did you think?" reaction bar. Each visitor's picks
+are stored on their own device (localStorage), and the **running totals are stored
+in a Cloudflare D1 database** so every visitor around the world sees the same count.
+
+The API backend lives at `functions/api/reactions.js` and is served by the
+**Pages Function** at `/api/reactions`, using a D1 database bound as `DB`.
+
+### One-time setup (do this once, ~5 min, dashboard only)
+
+1. **Create the database**
+   Cloudflare dashboard → **Workers & Pages** → **D1** → **Create database**.
+   Name it `playpress-reactions` (region: pick nearest). Copy the database ID.
+
+2. **Create the table**
+   Open the new database → **Console** tab → paste the contents of
+   `migrations/0001_reactions.sql` and run it. (This makes the `reactions` table.)
+
+3. **Bind the database to your Pages project**
+   Cloudflare **Workers & Pages** → your `playpress-site` project → **Settings** →
+   **Bindings → Add → D1 database binding**.
+   - Variable name: `DB`
+   - Database: `playpress-reactions`
+
+4. **Redeploy** the site so the Pages Function and the binding take effect.
+
+5. **Push `functions/` and `migrations/` to GitHub** with the next upload. The
+   function is auto-detected at `/functions` and deployed with the site automatically.
+
+### Verify
+Open any blog post →
+💡 There should be an animated little reaction chip
+that shows counts. Check two different devices/sessions — they should now share the
+same global count.
+
+### Note
+The endpoint is intentionally simple (GET returns totals, POST increments a single
+emoji). Counts are tamper-resistant enough for social proof but not a hardened
+anti-abuse system, which is fine for this use. Slugs and emoji are validated
+server-side.

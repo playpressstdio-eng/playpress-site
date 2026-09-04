@@ -715,3 +715,21 @@
 .t-card .t-block .t-role{font-size:12px;color:var(--text-muted)}
 .t-card .t-chip{font-size:10.5px;padding:3px 9px}
 .t-cap{text-align:center;color:var(--text-muted);font-size:14px;margin:8px 0 0;max-width:48ch;margin-left:auto;margin-right:auto}
+
+/* ===== BLOG POST REACTIONS ===== */
+.reactions{margin:36px 0 40px;padding:26px 26px 22px;background:var(--bg-surface-solid);border:1px solid var(--border-light);border-radius:16px;box-shadow:var(--shadow-sm)}
+.r-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+.r-head b{font-size:16px;color:var(--text-main)}
+.r-head span{font-size:12px;color:var(--text-muted)}
+.r-buttons{display:flex;flex-wrap:wrap;gap:10px}
+.reaction{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border:1px solid var(--border-light);border-radius:999px;background:var(--bg-card-soft);cursor:pointer;font-family:inherit;font-size:14px;font-weight:600;color:var(--text-body);transition:all .18s ease;position:relative}
+.reaction:hover{border-color:var(--border-strong);transform:translateY(-1px);background:#fff}
+.reaction .r-emoji{font-size:18px;line-height:1;transition:transform .18s}
+.reaction .r-count{font-size:12.5px;font-weight:700;color:var(--text-muted);font-variant-numeric:tabular-nums;min-width:14px}
+.reaction.lit{background:var(--accent-pill);border-color:var(--accent);color:var(--accent-dark)}
+.reaction.lit .r-emoji{transform:scale(1.18)}
+.reaction.lit .r-count{color:var(--accent-dark)}
+.reaction.bump{animation:reactBump .35s ease}
+@keyframes reactBump{0%{transform:scale(1)}40%{transform:scale(1.14)}100%{transform:scale(1)}}
+.r-note{margin-top:14px;font-size:12px;color:var(--text-muted)}
+@media(prefers-reduced-motion:reduce){.reaction,.reaction .r-emoji{transition:none}.reaction.bump{animation:none}}

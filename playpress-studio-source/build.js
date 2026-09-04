@@ -267,6 +267,61 @@ ${o.main || ''}
     card.appendChild(s);
     setTimeout(function () { s.remove(); }, 900);
   }
+
+  // ---- Blog post reactions (global counts via /api/reactions) ----
+  document.querySelectorAll(".reactions").forEach(function (box) {
+    var slug = box.getAttribute("data-slug") || "post";
+    var api = "/api/reactions?slug=" + encodeURIComponent(slug);
+    var pickKey = "ppr_sel_" + slug; // which emojis THIS device picked
+    var chosen = {};
+    try { chosen = JSON.parse(localStorage.getItem(pickKey)) || {}; } catch (e) { chosen = {}; }
+    var server = null; // global totals returned by the API
+    var buttons = box.querySelectorAll(".reaction");
+
+    function render() {
+      buttons.forEach(function (b) {
+        var em = b.getAttribute("data-emoji");
+        var on = !!chosen[em];
+        var base = (server && server[em] != null) ? server[em] : 0;
+        b.querySelector(".r-count").textContent = base;
+        b.classList.toggle("lit", on);
+        b.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+    }
+
+    function loadServer() {
+      fetch(api).then(function (r) { return r.json(); }).then(function (d) {
+        server = d || {};
+        render();
+      }).catch(function () { /* no backend on this preview; fall back to on-device only */ });
+    }
+    if (window.requestIdleCallback) requestIdleCallback(loadServer);
+    else setTimeout(loadServer, 200);
+    render();
+
+    buttons.forEach(function (b) {
+      b.addEventListener("click", function () {
+        var em = b.getAttribute("data-emoji");
+        var turningOn = !chosen[em];
+        chosen[em] = turningOn;
+        try { localStorage.setItem(pickKey, JSON.stringify(chosen)); } catch (e) {}
+        var serverBefore = server ? (server[em] || 0) : 0;
+        // Optimistic update, then reconcile with the server response.
+        if (!server) server = {};
+        server[em] = Math.max(0, serverBefore + (turningOn ? 1 : -1));
+        b.classList.add("bump");
+        setTimeout(function () { b.classList.remove("bump"); }, 360);
+        render();
+        fetch("/api/reactions", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ slug: slug, emoji: em, delta: turningOn ? 1 : -1 })
+        }).then(function (r) { return r.json(); }).then(function (d) {
+          if (d && d[em] != null) { server[em] = d[em]; render(); }
+        }).catch(function () { /* offline: keep optimistic value */ });
+      });
+    });
+  });
 })();
 </script>
 </body>
@@ -559,6 +614,24 @@ posts.forEach(p => {
   while (usedSlugs[s]) { s = base + '-' + (n++); }
   usedSlugs[s] = true; p._slug = s;
 });
+// Reactions: per-post, stored on-device (localStorage). Upgradable to a public
+// count with a Cloudflare Worker + D1 later — see DEPLOY-README.
+const REACTIONS = [
+  { emoji: '👍', label: 'Helpful' },
+  { emoji: '❤️', label: 'Love it' },
+  { emoji: '🤯', label: 'Mind blown' },
+  { emoji: '👏', label: 'Claps' },
+  { emoji: '🔥', label: 'Fire' },
+  { emoji: '🤔', label: 'Thinking' }
+];
+function reactionsHTML(slug) {
+  const btns = REACTIONS.map(r => `<button class="reaction" data-emoji="${r.emoji}" aria-pressed="false" aria-label="${esc(r.label)}"><span class="r-emoji">${r.emoji}</span><span class="r-count">0</span></button>`).join('');
+  return `<div class="reactions" data-slug="${esc(slug)}">
+    <div class="r-head"><b>What did you think?</b><span>Tap to react</span></div>
+    <div class="r-buttons">${btns}</div>
+    <div class="r-note">Your reactions are saved on this device so they're there when you come back.</div>
+  </div>`;
+}
 const card = (p, cls) => {
   const date = safeDate(p.data.date);
   const img = p.data.image ? `<div class="post-media"><img class="post-thumb" src="${esc(asset(p.data.image))}" alt="${esc(p.data.title)}" loading="lazy"></div>` : '';
@@ -603,6 +676,7 @@ posts.forEach(p => {
         ${t.date ? `<div class="post-date">${esc(safeDate(t.date))}</div>` : ''}
         ${img}
         <div class="post-body">${body}</div>
+        ${reactionsHTML(p._slug)}
       </article>
       ${postNav}
     </div></div>`
