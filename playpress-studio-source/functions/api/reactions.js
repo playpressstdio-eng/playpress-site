@@ -1,7 +1,7 @@
 // Cloudflare Pages Function — blog post reactions (global, server-tallied)
 // Endpoint: /api/reactions
-//   GET  /api/reactions?slug=<post-slug>              -> { emoji: count, ... }
-//   POST /api/reactions body {slug, emoji, delta}     -> { emoji: newCount }
+//   GET  /api/reactions?slug=<post-slug>          -> { emoji: count, ... }
+//   POST /api/reactions  body {slug, emoji, delta} -> { emoji: newCount }
 //
 // Requires a D1 database bound to this Pages project with the variable name `DB`.
 // Schema (run in D1, see the migration file or "Run SQL" in the dashboard):
@@ -29,6 +29,11 @@ export function json(data, status = 200) {
   });
 }
 
+// Sanitize a slug: lowercase, keep letters/digits/hyphens, cap length.
+function cleanSlug(s) {
+  return String(s || '').toLowerCase().replace(/[^a-z0-9-]/g, '').slice(0, 120);
+}
+
 export async function onRequest(context) {
   const { request, env } = context;
   const url = new URL(request.url);
@@ -37,12 +42,16 @@ export async function onRequest(context) {
     return new Response(null, { status: 204, headers: CORS });
   }
 
-  // Validate + sanitize the slug (lowercase, hyphens, letters/digits).
-  const rawSlug = (url.searchParams.get('slug') || '').toLowerCase();
-  const slug = rawSlug.replace(/[^a-z0-9-]/g, '').slice(0, 120);
-  if (!slug) return json({ error: 'bad_slug' }, 400);
-
   try {
+    // Resolve the slug once. For GET it comes from the query string; for POST we
+    // read the JSON body first and prefer its slug, falling back to the query.
+    let body = {};
+    if (request.method === 'POST') {
+      try { body = await request.clone().json(); } catch (e) { return json({ error: 'bad_json' }, 400); }
+    }
+    const slug = cleanSlug(url.searchParams.get('slug') || body.slug);
+    if (!slug) return json({ error: 'bad_slug' }, 400);
+
     // GET — return current counts for this post.
     if (request.method === 'GET') {
       const res = await env.DB
@@ -56,9 +65,6 @@ export async function onRequest(context) {
 
     // POST — increment/decrement a reaction.
     if (request.method === 'POST') {
-      let body;
-      try { body = await request.json(); } catch (e) { return json({ error: 'bad_json' }, 400); }
-
       const emoji = String(body.emoji || '').slice(0, 8);
       if (!ALLOWED.includes(emoji)) return json({ error: 'bad_emoji' }, 400);
       const delta = Number(body.delta) > 0 ? 1 : -1;

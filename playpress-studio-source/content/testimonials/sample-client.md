@@ -1,11 +1,11 @@
 ---
-name: "Sample Client"
-role: "Founder, Example Company"
-quote: "PlayPress turned our weekly recording into a month of content. Best value we've had."
+name: "Illustrative Example"
+role: "placeholder that shows how a real client will appear"
+quote: "This is a layout preview, not a real endorsement. When a genuine partner leaves a testimonial, it will appear here with their name, role, and result."
 service: "Full Production"
 rating: 5
-result: "Ship a month of content from one weekly recording"
-featured: false
+result: "example outcome once a real account is onboarded"
+featured: true
 link:
 ---
-This is a placeholder testimonial. When you add a real one at /admin/, fill in: name, role (company + role), quote, the service used (e.g. "Core Production" or "Growth & Social"), a star rating (1-5), an optional result line (a specific outcome), and optionally set featured: true for the first one.
+This card is an illustrative placeholder that demonstrates how a testimonial will look. It is NOT a fabricated client. Use the CMS at /admin/ to add, edit, or replace real testimonials as partners onboard. Delete this file or unset `featured` once you have one or more real accounts.

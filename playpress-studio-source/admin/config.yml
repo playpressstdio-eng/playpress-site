@@ -110,6 +110,16 @@ collections:
         file: "playpress-studio-source/content/home/footer.yml"
         fields:
           - { label: "Copyright", name: "copyright", widget: "string" }
+      - name: "stats"
+        label: "Stat Bar (under the hero)"
+        file: "playpress-studio-source/content/home/stats.yml"
+        fields:
+          - label: "Stats"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Stat (e.g. '3' or '48-72h')", name: "stat", widget: "string" }
+              - { label: "Label", name: "label", widget: "string" }
 
   # ===== SAMPLES =====
   - name: "samples"

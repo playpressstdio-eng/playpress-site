@@ -733,3 +733,13 @@
 @keyframes reactBump{0%{transform:scale(1)}40%{transform:scale(1.14)}100%{transform:scale(1)}}
 .r-note{margin-top:14px;font-size:12px;color:var(--text-muted)}
 @media(prefers-reduced-motion:reduce){.reaction,.reaction .r-emoji{transition:none}.reaction.bump{animation:none}}
+
+/* ===== STAT BAR (home, under hero) ===== */
+.stats-bar{background:var(--bg-surface-solid);border-top:1px solid var(--border-light);border-bottom:1px solid var(--border-light);padding:34px 0}
+.stats-bar .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;text-align:center}
+.stats-bar .stat b{font-size:30px;font-weight:800;letter-spacing:-.02em;color:var(--accent-dark);display:block}
+.stats-bar .stat span{font-size:13.5px;color:var(--text-muted);font-weight:600}
+@media(max-width:900px){.stats-bar .wrap{grid-template-columns:repeat(2,1fr)}}
+
+/* ===== "Most popular" badge on the highlighted tier ===== */
+.pkg-pop{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:5px 15px;border-radius:999px;box-shadow:0 6px 16px rgba(199,91,100,.28)}

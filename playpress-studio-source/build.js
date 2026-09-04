@@ -70,7 +70,7 @@ function renderBody(s) {
 
 // ---------- Load content ----------
 let SEO = {}, BRAND = {}, CONTACT = {};
-let NAV = {}, HERO = {}, HOW = {}, MATRIX = {}, FAQ = {}, CTA = {}, FOOTER = {};
+let NAV = {}, HERO = {}, HOW = {}, MATRIX = {}, FAQ = {}, CTA = {}, FOOTER = {}, STATS = {};
 let SAMPLES = {}, PACKAGES = {};
 let ABIO = {}, APORT = {}, ACREDS = {}, AFUN = {};
 const HOME_DIR = path.join(CONTENT, 'home');
@@ -86,6 +86,7 @@ MATRIX = load(path.join(HOME_DIR, 'matrix.yml'), MATRIX, 'matrix');
 FAQ = load(path.join(HOME_DIR, 'faq.yml'), FAQ, 'faq');
 CTA = load(path.join(HOME_DIR, 'cta.yml'), CTA, 'cta');
 FOOTER = load(path.join(HOME_DIR, 'footer.yml'), FOOTER, 'footer');
+STATS = load(path.join(HOME_DIR, 'stats.yml'), STATS, 'stats');
 SAMPLES = load(path.join(CONTENT, 'samples.yml'), SAMPLES, 'samples');
 PACKAGES = load(path.join(CONTENT, 'packages.yml'), PACKAGES, 'packages');
 ABIO = load(path.join(ABOUT_DIR, 'bio.yml'), ABIO, 'about/bio');
@@ -95,7 +96,7 @@ AFUN = load(path.join(ABOUT_DIR, 'fun.yml'), AFUN, 'about/fun');
 
 const seo = SEO || {}, brand = BRAND || {}, contact = CONTACT || {};
 const nav = NAV || {}, hero = HERO || {}, how = HOW || {}, matrix = MATRIX || {};
-const faq = FAQ || {}, cta = CTA || {}, footer = FOOTER || {};
+const faq = FAQ || {}, cta = CTA || {}, footer = FOOTER || {}, stats = STATS || {};
 const about = ABIO || {}, aport = APORT || {}, acreds = ACREDS || {}, afun = AFUN || {};
 
 const NAME = brand.name || 'PlayPress Studio';
@@ -344,7 +345,13 @@ function homeMain() {
       <a href="${esc(hero.primary_link || contact.calendly || '#')}" target="_blank" rel="noopener" class="btn-primary">${esc(hero.primary_text || 'Book a Discovery Call')}</a>
       <a href="${esc(hero.secondary_link || '/packages/')}" class="btn-secondary">${esc(hero.secondary_text || 'View Packages')}</a>
     </div>
-    <p style="margin-top:22px;font-size:13px;color:var(--text-muted)">Solo-owned studio · Max 3 clients at a time · 48-72h turnaround</p>
+  </div>
+</section>
+
+<!-- STAT BAR: numbers before adjectives (editable in content/home/stats.yml) -->
+<section class="stats-bar">
+  <div class="wrap">
+    ${arr(stats.items).map(s => `<div class="stat"><b>${esc(s.stat)}</b><span>${esc(s.label)}</span></div>`).join('')}
   </div>
 </section>
 
@@ -458,7 +465,9 @@ function packagesMain() {
   <!-- PACKAGES / PRICING: right up top -->
   <div class="pkg-grid" style="margin-top:8px">${arr(PACKAGES.plans).map(p => {
     const pill = p.pill ? `<div class="pkg-pill ${p.pill_class || ''}">${esc(p.pill)}</div>` : '';
+    const pop = p.pill_class === 'featured' ? `<div class="pkg-pop">Most popular</div>` : '';
     return `<div class="pkg-card ${p.pill_class === 'featured' ? 'featured' : (p.pill_class === 'gold' ? 'founder' : '')}">${pill}
+      ${pop}
       <h3>${esc(p.name)}</h3><div class="pkg-desc">${esc(p.description)}</div>
       <div class="pkg-price">${esc(p.price)}<span> / month</span></div>
       <div class="founding-badge-inline">✦ ${esc(p.badge)}</div>
@@ -526,11 +535,12 @@ function testimonialsMain() {
     ${feat.data.result ? `<div class="t-result">${esc(feat.data.result)}</div>` : ''}
     <div class="t-foot"><div class="tav">${feat._i}</div><div><div class="t-name">${esc(feat.data.name || 'Client')}</div>${feat.data.role ? `<div class="t-role">${esc(feat.data.role)}</div>` : ''}</div>${feat.data.service ? `<span class="t-chip">${esc(feat.data.service)}</span>` : ''}</div>
   </div>` : '';
-  return pageHero('Testimonials', 'What partners say', 'Real words from real collaborators as this studio grows.') + `
+  return pageHero('Testimonials', 'What partners say', 'This page is set up and ready to grow. Real words from real collaborators will fill it in as the studio takes on its first partners.') + `
 <div class="wrap">
+  <p class="t-cap" style="margin-bottom:34px">You're seeing how a testimonial will look, not a fabricated client. The card below is a labeled layout preview. When a genuine partner leaves a testimonial, it appears here with their name, role, and a measurable result.</p>
   ${featureBlock}
   ${list.length ? `<div class="testimonials-grid">${rest.length ? rest.map(card).join('') : (feat ? '' : card(feat))}</div>` : `<div class="t-cap">Client testimonials are coming soon once the first partners are onboarded.</div>`}
-  <p class="t-cap" style="margin-top:34px">This section grows as I take on my first partners, one testimonial at a time. Book a discovery call to be the first.</p>
+  <p class="t-cap" style="margin-top:34px">This section grows one testimonial at a time, as I take on my first partners. Book a discovery call to be the first.</p>
 </div>
 ${ctaBanner()}`;
 }

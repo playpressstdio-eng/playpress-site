@@ -1,0 +1,11 @@
+# Stat bar (shown right under the hero) — numbers before adjectives.
+# Each item: a big number/stat and a short label.
+items:
+  - stat: "3"
+    label: "Clients at a time, max"
+  - stat: "48-72h"
+    label: "Typical episode turnaround"
+  - stat: "1"
+    label: "Dedicated producer, end to end"
+  - stat: "0"
+    label: "Agency handoffs or add-ons"
