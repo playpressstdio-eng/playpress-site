@@ -637,7 +637,12 @@
 .post-title{font-size:38px;line-height:1.2;margin:40px 0 8px;letter-spacing:-.03em}
 .post-date{font-size:13px;color:#8A6F62;text-transform:uppercase;letter-spacing:.05em;margin-bottom:24px}
 .post-body{font-size:17px;margin-bottom:60px}
-.post-body h2{margin:28px 0 8px;color:#C75B64}
+.post-body h2{margin:34px 0 10px;color:#C75B64}
+.post-body h3.post-sub{margin:30px 0 6px;font-size:18px;color:var(--text-main);font-weight:800;letter-spacing:-.01em}
+.post-body p{margin:0 0 18px}
+.post-body ul{margin:0 0 20px;padding-left:22px}
+.post-body li{margin-bottom:9px}
+.post-body li::marker{color:#C75B64}
 .post-body a{color:#C75B64}
 .post-body code{background:#FAE7E4;padding:2px 6px;border-radius:4px}
 .blog-featured{background:#fff;border:1px solid rgba(146,100,86,.12);border-radius:18px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;box-shadow:0 10px 30px rgba(140,82,72,.10);margin:8px 0 46px}
@@ -742,4 +747,4 @@
 @media(max-width:900px){.stats-bar .wrap{grid-template-columns:repeat(2,1fr)}}
 
 /* ===== "Most popular" badge on the highlighted tier ===== */
-.pkg-pop{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:5px 15px;border-radius:999px;box-shadow:0 6px 16px rgba(199,91,100,.28)}
+.pkg-pop{position:absolute;top:-11px;right:16px;background:var(--accent);color:#fff;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:5px 15px;border-radius:999px;box-shadow:0 6px 16px rgba(199,91,100,.28)}

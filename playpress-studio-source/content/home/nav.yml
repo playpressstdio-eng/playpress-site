@@ -29,9 +29,5 @@ links:
   - id: about
     label: About
     href: "/about/"
-    children:
-      - { label: Bio, href: "/about/#bio" }
-      - { label: Credentials, href: "/about/#credentials" }
-      - { label: Fun Note, href: "/about/#fun-note" }
 cta_text: "Book Discovery Call"
 cta_link: "https://calendly.com/playpress-stdio/15min"

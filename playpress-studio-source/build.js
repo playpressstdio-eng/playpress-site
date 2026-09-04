@@ -64,6 +64,11 @@ function renderBody(s) {
     if (/^[-*]\s/.test(t)) {
       return `<ul>${t.split('\n').filter(Boolean).map(i => `<li>${inlineMD(i.replace(/^[-*]\s/, ''))}</li>`).join('')}</ul>`;
     }
+    // A bold-only line (a whole line wrapped in ** **) acts as an inline subheading.
+    // Detect it before "**" is turned into <strong> so it renders as a lead-in heading.
+    if (/^\*\*[^*]+\*\*$/.test(t)) {
+      return `<h3 class="post-sub">${inlineMD(t)}</h3>`;
+    }
     return `<p>${inlineMD(t)}</p>`;
   }).join('\n');
 }
@@ -368,21 +373,6 @@ function homeMain() {
   </div>
 </section>
 
-<!-- Explore: one-line links into each division -->
-<section id="explore" style="padding-top:72px;background:var(--bg-section-tint);border-bottom:1px solid var(--border-light)">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="kicker">Explore</div>
-      <h2>Pick where to go next</h2>
-    </div>
-    <div class="explore-grid">
-      <a class="explore-card" href="/samples/"><div class="ex-ico">🎬</div><b>Samples</b><p>Before &amp; after video, vertical reels, graphics, show notes and emails.</p><span class="ex-go">View samples</span></a>
-      <a class="explore-card" href="/packages/"><div class="ex-ico">📦</div><b>Packages</b><p>Simple monthly plans, plus how it works and what every episode gets.</p><span class="ex-go">See plans</span></a>
-      <a class="explore-card" href="/testimonials/"><div class="ex-ico">💬</div><b>Testimonials</b><p>What partners say about working together.</p><span class="ex-go">Read them</span></a>
-      <a class="explore-card" href="/about/"><div class="ex-ico">👤</div><b>About</b><p>The person behind the edits, and why I do this solo.</p><span class="ex-go">Meet me</span></a>
-    </div>
-  </div>
-</section>
 ${ctaBanner()}`;
 }
 

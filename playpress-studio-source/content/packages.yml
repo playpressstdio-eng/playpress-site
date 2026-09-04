@@ -9,9 +9,9 @@ plans:
     pill_class: "gold"
     name: "Founding Core"
     description: "Introductory 3-month rate for early partners in exchange for a testimonial and case study."
-    price: "$459"
+    price: "$559"
     price_unit: "/ month"
-    badge: "Locked in for first 3 months ($689/mo regular after)"
+    badge: "Locked in for first 3 months ($729/mo regular after)"
     features:
       - "Full audio + video edit of main episode"
       - "SEO-structured show notes & timestamps"
